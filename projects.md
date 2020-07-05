@@ -1,6 +1,8 @@
 ---
 layout: project_list
-title: Projects
 permalink: /projects/
+
+title: Projects
+hero_image: /assets/images/hero_blueprint.jpg
 ---
 

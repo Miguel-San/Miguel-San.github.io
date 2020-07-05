@@ -5,23 +5,27 @@ $primary: #333333;
 $card-text: whitesmoke;
 
 
-.card{	
+.project-card{	
+	@extend .card;
 	overflow: hidden;
 	background-color: $primary !important;
 }
 
-.card:hover .card-image{
+.project-card:hover .project-card-image{
 	//background: lighten($primary, 75%);
-	filter: opacity(50%);
+	filter: opacity(10%);
 	transition: 0.3s ease-in-out;
 }
 
-.card .card-image{
+.project-card .project-card-image{
+	@extend .card-image;
 	transition: 0.3s ease-in-out;
 }
 
-.card-content{
+.project-card-content{
+	@extend .card-content;
 	position: absolute;
+	overflow: hidden;
 	transform: translateY(calc(100% - 6rem));
 	transition: 0.3s ease-in-out;
 	width: 100%;
@@ -33,7 +37,7 @@ $card-text: whitesmoke;
 	left: 0px;
 }
 
-.card:hover .card-content{
+.project-card:hover .project-card-content{
 	transform: translateY(0px);
 	transition: 0.3s ease-in-out;
 }
@@ -64,8 +68,9 @@ $card-text: whitesmoke;
    -webkit-box-orient: vertical;
 }
 
-.card-content{
-	overflow: hidden;
+.highlight {
+
+	text-align: left !important;
 }
 
 @import "_main";

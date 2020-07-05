@@ -16,9 +16,9 @@ show_sidebar: false
 
     <a href="{{ project.url | absolute_url }}">
 
-      <div class="card">
+      <div class="project-card">
         {% if project.image %}
-        <div class="card-image">
+        <div class="project-card-image">
           <figure class="image is-4by3">
             <img src="{{ project.image }}" alt="{{ project.title }}" />
           </figure>
@@ -30,7 +30,7 @@ show_sidebar: false
         </div>
 
         {% endif %}
-        <div class="card-content">
+        <div class="project-card-content">
           <p class="project-title is-4">{{ project.title }}</p>
           <p class="project-subtitle is-4">{{ project.subtitle }}</p>  
           <p class="project-description" align="justify">{{project.description}}</p>

@@ -30,6 +30,20 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  Miguel-San
 
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "Miguel Sánchez"
+      layout: post
+      #hero_image: /path/to/hero-image.jpg
+      show_sidebar: true
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 # Build settings
 #theme: bulma-clean-theme
 remote_theme: chrisrhymes/bulma-clean-theme
