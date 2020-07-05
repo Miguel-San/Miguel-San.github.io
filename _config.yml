@@ -38,7 +38,6 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-multiple-languages-plugin
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -66,7 +65,4 @@ collections:
   projects:
     output: true 
     layout: project
-
-languages: ["en", "es"]
-exclude_from_localizations: ["assets"]
     
