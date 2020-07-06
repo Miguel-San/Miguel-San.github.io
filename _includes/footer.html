@@ -1,0 +1,43 @@
+<footer class="footer">
+    <div class="container">        
+        {% if site.footer_menu %}
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4"> 
+                    <div class="columns is-centered is-multiline">
+                        {% for item in site.data[site.footer_menu] %}
+                            <div class="column is-3">
+                            </div>
+                            <div class="column is-5">
+                                <div class="content">
+                                    <div>
+                                        <a href="{{ item.link | absolute_url }}" class="link">{{ item.name }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                            </div>
+                        {% endfor %}
+                    </div>
+                 </div>
+
+                 <div class="column is-4 has-text-centered">
+                     <p>You can find me on:</p><br>
+                     {% include social_media.html %}
+                 </div>
+
+
+                <div class="column is-4">
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Unless otherwise noted, all the contents on this web were made by <a xmlns:cc="http://creativecommons.org/ns#" href="https://miguel-san.github.io/" property="cc:attributionName" rel="cc:attributionURL">Miguel Sánchez Domínguez</a> and are under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">license of Attribution-NonCommercial-ShareAlike 4.0 International by Creative Commons</a>.
+                </div>
+            </div>
+        {% else %}
+            <div class="content is-small has-text-centered">
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Unless otherwise noted, all the contents on this web were made by <a xmlns:cc="http://creativecommons.org/ns#" href="https://miguel-san.github.io/" property="cc:attributionName" rel="cc:attributionURL">Miguel Sánchez Domínguez</a> and are under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">license of Attribution-NonCommercial-ShareAlike 4.0 International by Creative Commons</a>.
+            </div>
+        {% endif %}
+
+        <div class="content is-small has-text-centered">
+            <p class="">Site built using <a href="https://github.com/chrisrhymes/bulma-clean-theme">Bulma Clean Theme</a> by <a href="https://www.csrhymes.com">C.S. Rhymes</a>.<br>Modified for this website by Miguel Sánchez.</p>
+        </div>
+    </div>
+</footer>
