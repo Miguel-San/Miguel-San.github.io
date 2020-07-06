@@ -29,6 +29,8 @@ The band take their places by their instruments and then look out over the crowd
 
 The bass is so strong it causes you chest to vibrate in time with the music. Your ears are thundered with an explosion of sound.
 
+![Test Image](/assets/images/hero_turbine1.jpg "JUAS JUAS JUAS")
+
 And then you smile. This is what you have come for. A feeling of belonging, singing and cheering along with another 100 thousand people. All singing the same words together to the music.
 
 The time flies and song after song are played. You wish time would slow down so you could stretch this feeling and this moment out for as long as possible, but you know it has to end soon. The band build up the last song and make it longer and longer before they peak. And then that's it. The band walk off the stage to the ear splitting cheering of the crowd and the lights start to fade.
