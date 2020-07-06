@@ -1,6 +1,8 @@
 ---
 layout: page
 title: About
+hero_image: /assets/images/hero_rocket_launch.png
+hero_y_pos: top
 permalink: /about/
 ---
 
