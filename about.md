@@ -6,15 +6,17 @@ hero_y_pos: top
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+### About me
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I'm a third year undergraduate Aerospace Eng. student in ETSIAE - UPM, Spain.  
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+### About this website
 
+The idea of this website started as a portfolio that would complement and explain in detail the personal projects on my GitHub. Soon I realised that I could use it as well to post my progress on the projects and develop other more theoretical themes in a more informal blog format.
 
-[jekyll-organization]: https://github.com/jekyll
+This site is newly born so it is in a very early stage of development. Even so, I hope you can find some usefull information in it.
+
+### If you find any errors
+
+If you find anything on this website you consider it's wrong, confusing or can be improved in any way, please tell me!
+You can find me on [Twitter](https://twitter.com/{{ site.twitter_username }}), [GitHub](https://github.com/{{ site.github_username }}) and [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}) or send me an email to  [{{site.email}}](mailto:{{site.email}})

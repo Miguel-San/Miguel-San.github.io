@@ -2,6 +2,12 @@
 layout: project
 toc: true
 permalink: /projects/test_project/
+
+featured: true
+tags:
+  - CSS
+  - C++
+
 hero_image: /assets/images/hero_gears.jpg
 image: /assets/images/gears.jpg
 title: Test

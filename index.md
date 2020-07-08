@@ -1,23 +1,30 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: page
 hero_height: is-fullheight-with-navbar
 hero_image: /assets/images/hero_turbine1.jpg
 hero_x_pos: right
 title: Aerospace Eng. Student and Tech Enthusiast
-subtitle: Cosas guays
+
+showcase: featured_projects
 ---
 
-# This is a test
+### Welcome!
 
-## Sub test
+Welcome to my website! I'm Miguel Sánchez.
 
-LALALALALALA
+On this site you will find projects I made in the past as well as some usefull information about solving problems using maths, physics and technology.  
+Definitely: Engineering!
 
----
+### Featured projects
 
-LALALA
+This is a list of some projects I made. You can find the entire list on the [Projects](/projects/) page.
 
-`code`
+{% for project in site.projects %}
+{% if project.featured %}
+
+{% include featured_project.html url=project.permalink title=project.title subtitle=project.subtitle description=project.description tags=project.tags %}
+
+{% endif %}
+{% endfor %}
+
+{% include latest-posts.html %} 

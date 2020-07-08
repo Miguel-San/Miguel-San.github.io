@@ -22,18 +22,24 @@ show_sidebar: false
           <figure class="image is-4by3">
             <img src="{{ project.image }}" alt="{{ project.title }}" />
           </figure>
-
-          <!-- <div class="card-content">
-            <p class="project-title is-4">{{ project.title }}</p>
-            <p class="project-subtitle is-4">{{ project.subtitle }}</p>  
-          </div> -->
         </div>
 
         {% endif %}
         <div class="project-card-content">
           <p class="project-title is-4">{{ project.title }}</p>
           <p class="project-subtitle is-4">{{ project.subtitle }}</p>  
-          <p class="project-description" align="justify">{{project.description}}</p>
+          <!-- <p class="project-description" align="justify">{{project.description}}</p> -->
+
+          {% if project.tags %}
+          <div class="tags is-centered">
+          {% for tag in project.tags %}
+
+          <div class="tag is-outlined">{{ tag }}</div>
+
+          {% endfor %}
+          </div>
+          {% endif %}
+
           <br>
           <div class="has-text-centered">
               <span class="button is-primary">View</span>

@@ -99,4 +99,13 @@ $primary_hover: #595959;
 	overflow: hidden;
 }
 
+.tag:not(body).is-outlined{
+
+	border: solid 1px;
+	border-width: 1px !important;
+	background: transparent !important;
+	border-color: $primary !important;
+	color: $primary !important;
+}
+
 @import "_main";
