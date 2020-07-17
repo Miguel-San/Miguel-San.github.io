@@ -12,9 +12,9 @@ I'm a third year undergraduate Aerospace Eng. student in ETSIAE - UPM, Spain.
 
 ### About this website
 
-The idea of this website started as a portfolio that would complement and explain in detail the personal projects on my GitHub. Soon I realised that I could use it as well to post my progress on the projects and develop other more theoretical themes in a more informal blog format.
+The idea of this website started as a portfolio that would complement and explain in detail the personal projects on my GitHub. Soon I realized that I could use it as well to post my progress on the projects and develop other more theoretical themes in a more informal blog format.
 
-This site is newly born so it is in a very early stage of development. Even so, I hope you can find some usefull information in it.
+This site is newly born so it is in a very early stage of development. Even so, I hope you can find some useful information on it.
 
 ### If you find any errors
 

@@ -80,11 +80,12 @@ The band have gone but the crowd remain, chanting more, more, more. We want more
 
 The band start playing again, starting the encore, and this time they are playing that song. Your favourite song. You get that feeling you get every time you 
 
-```C
+
+{% highlight C++ %}
 #include <Servo.h>
 
 void loop(){
 
 	pinMode(3, OUTPUT);
 }
-```
+{% endhighlight %}

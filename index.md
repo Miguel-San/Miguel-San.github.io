@@ -12,7 +12,7 @@ showcase: featured_projects
 
 Welcome to my website! I'm Miguel Sánchez.
 
-On this site you will find projects I made in the past as well as some usefull information about solving problems using maths, physics and technology.  
+On this site you will find projects I made in the past as well as some useful information about solving problems using maths, physics and technology.  
 Definitely: Engineering!
 
 ### Featured projects

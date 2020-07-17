@@ -4,6 +4,16 @@
 $primary: #333333;
 $primary_hover: #595959;
 
+/*.content, .subtitle.is-5{
+
+	text-align: justify !important;
+}*/
+
+.footnote{
+	//text-decoration: underline !important;
+	font-weight: bold !important;
+}
+
 .is-darklink{
 	color: $primary !important;
 	transition: 0.2s;
@@ -40,7 +50,7 @@ $primary_hover: #595959;
 	@extend .card-content;
 	position: absolute;
 	overflow: hidden;
-	transform: translateY(calc(100% - 6rem));
+	transform: translateY(calc(100% - 4.5rem));
 	transition: 0.3s ease-in-out;
 	width: 100%;
 	max-height: 100%;
@@ -61,7 +71,8 @@ $primary_hover: #595959;
 .project-title{
 	@extend .title ;
 	//color: $card-text !important;
-	text-align: center;
+	text-align: center !important;
+	margin-bottom: 2.5rem !important;
 }
 
 .project-subtitle{

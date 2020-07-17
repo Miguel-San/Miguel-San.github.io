@@ -18,8 +18,12 @@ description: Un pangrama o frase holoalfabética es un texto que usa todas las l
 ## AAAAAAAAAAAA
 
 ### AAAA
-aaaaaaaaaaaa
+aaaaaaaaaaaa [^1]
 ### BBBBBBBB
 bbbbbbbbbbbbbbbbbbbb
 
 ## Lorem Ipsum
+
+---
+
+[^1]: Test
