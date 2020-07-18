@@ -1,7 +1,7 @@
 {% if page.menubar and page.show_sidebar %} 
     {% assign content_width = 'is-4' %} 
 {% elsif page.menubar or page.show_sidebar %} 
-    {% assign content_width = 'is-8' %} 
+    {% assign content_width = 'is-8-desktop is-12-tablet' %} 
 {% else %} 
     {% assign content_width = 'is-12' %} 
 {% endif %}
@@ -22,7 +22,7 @@
                     {% include menubar.html %}
                 </div>
                 {% endif %}
-                <div class="column {{ content_width }}">
+                <div class="column {{ content_width }}">                   
                     {% include tabs.html %}
                     {% include showcase.html %}
                     {% include sponsors.html %}
@@ -30,7 +30,19 @@
                 </div>
                 {% if site.posts and page.show_sidebar %}
                 <div class="column is-4-desktop is-12-tablet">
+                    <p class="title is-4">You can find me on</p>
+                    {% include social_media.html %}       
+
                     {% include latest-posts.html %}
+
+                    <p class="title is-4">Featured Projects</p>
+                    {% for project in site.projects %}
+                        {% if project.featured %}
+
+                            {% include featured_project.html url=project.permalink title=project.title subtitle=project.subtitle description=project.description tags=project.tags %}
+
+                        {% endif %}
+                    {% endfor %}
                 </div>
                 {% endif %}
             </div>

@@ -1,22 +1,24 @@
 ---
-layout: default
+layout: page
 toc: true
 ---
 
 <div class="columns is-multiline">
 
-    <div class="column is-5">
-        {% if page.toc %}
-            {% assign contentsTitle = page.toc_title | default: 'Contents' %}
-            {% include toc.html html=content class='menu-list' h_min=3 h_max=5 contents_title=contentsTitle %}
-        {% endif %}
-    </div>
-
-    <div class="column is-7">
+    <div class="column is-12">
         <p class="title is-3">{{ page.title }}</p>
         <p class="subtitle is-3">{{ page.subtitle }}</p>
         <p class="subtitle is-5">{{ page.description }}</p>
     </div>
+
+    <!-- <div class="column is-5">
+        {% if page.toc %}
+            {% assign contentsTitle = page.toc_title | default: 'Contents' %}
+            {% include toc.html html=content class='menu-list' h_min=2 contents_title=contentsTitle %}
+        {% endif %}
+    </div> -->
+
+    
 
     <div class="column is-12">
         <div class="content">
