@@ -51,6 +51,8 @@ The battery used in the drone has 3000mAh of capacity and a C-rate of 25C. This 
 
 # Falta fórmula
 
+$$\int_a^b x^2\, dx$$
+
 To achieve the desired motor speed to produce the necessary lift, we will use a 3S battery.
 
 #### The microcontroller
