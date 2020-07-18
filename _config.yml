@@ -15,7 +15,7 @@ favicon: /favicon.ico
 #hide_share_buttons: true
 
 #theme: bulma-clean-theme
-remote_theme: chrisrhymes/bulma-clean-theme
+#remote_theme: chrisrhymes/bulma-clean-theme
 
 footer_menu: footer
 
