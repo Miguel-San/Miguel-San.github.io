@@ -47,11 +47,9 @@ Li-Po batteries are made up of cells. Each cell has a nominal voltage of 3.7 Vol
 Other important values to take in account are the capacity and the maximum discharge rate.
 The capacity is how much energy the battery can storage. It is usually measured in milliamperes hour (mAh). It can be interpreted as how many amperes the battery can provide to drain it in one hour.
 The maximum discharge rate, or maximum C-rate, tells us how much current we can output the battery without damaging it. This parameter is relative to the capacity of the battery and comes represented as _#C_, where # is a number that represents how many times the current necessary to drain the battery in one hour can be extracted.  The relationship between this number and the capacity can be better understood in an example.
-The battery used in the drone has 3000mAh of capacity and a C-rate of 25C. This means that, as its maximum safe discharge can provide
+The battery used in the drone has 3000mAh of capacity and a C-rate of 25C. This means that, at its maximum safe discharge it can provide
 
 # Falta fórmula
-
-$$\int_a^b x^2\, dx$$
 
 To achieve the desired motor speed to produce the necessary lift, we will use a 3S battery.
 
