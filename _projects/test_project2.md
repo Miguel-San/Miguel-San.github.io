@@ -3,84 +3,67 @@ layout: project
 toc: true
 show_sidebar: true
 
+featured: true
+tags: 
+  - Lorem
+  - Ipsum
+
 permalink: /projects/test_project2/
 hero_image: /assets/images/hero_turbine1.jpg
 image: /assets/images/turbine1.jpg
 title: Test Project 2
-subtitle: Test
-description: Un pangrama o frase holoalfabética es un texto que usa todas las letras posibles del alfabeto de un idioma. Los pangramas más llamativos son por lo general los que usan el menor número de letras; construir un pangrama que repita letras lo menos posible puede ser una tarea desafiante. Sin embargo, los pangramas que son largos, extremadamente adornados, cómicos o excéntricos son igualmente llamativos. 
+subtitle: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+description: Suspendisse justo erat, interdum a libero tempor, vulputate aliquam orci. Nam vulputate, felis id imperdiet iaculis, nisi enim mollis felis, sit amet fringilla diam libero ut enim. Etiam tortor sem, dapibus eu dolor id, dignissim convallis dolor. Aliquam varius orci elit, in maximus magna sodales id. Donec ut cursus odio. Vestibulum porta, velit eget eleifend vestibulum, risus felis dignissim ante, sed auctor nibh ipsum vitae mauris. Mauris fermentum urna enim, a facilisis nulla tristique vitae.
 ---
 
-## Music is magic, it generates emotions.
+## Etiam consectetur
+massa accumsan tincidunt accumsan, felis metus iaculis turpis, vel luctus odio tellus at arcu. Vestibulum in est id felis molestie rutrum eu vel enim. Etiam pulvinar leo non lorem molestie luctus. Aliquam erat volutpat. Proin condimentum laoreet sagittis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor risus viverra placerat dapibus. Maecenas interdum urna id dolor pellentesque sagittis. Fusce eget magna et neque fringilla elementum. Donec rutrum augue eget elit suscipit, ac sollicitudin ligula tempor. Sed faucibus leo in ipsum ullamcorper iaculis. Vivamus ante purus, maximus quis purus in, aliquet porttitor ipsum. Nullam mattis aliquet lobortis.
 
-Everyone has that special song that gives them that buzz, gives you goosebumps and makes your hair stand on end. Maybe it reminds you of a happy memory, maybe it reminds you of what you have, maybe it reminds you of someone special.
+In lobortis erat ut erat congue dictum. Nunc interdum malesuada commodo. In egestas convallis elit, et vulputate arcu vulputate id. Duis consequat justo nec ipsum tincidunt commodo. Fusce tellus ex, venenatis mattis auctor eu, ultricies sit amet justo. Fusce sed ipsum in justo viverra finibus. Quisque ac erat ornare, vestibulum ante nec, iaculis est. Donec ullamcorper, urna ut fringilla vulputate, lectus nisl aliquam eros, non lacinia nulla quam non eros. Mauris vulputate tellus a purus fringilla, in eleifend dui pretium. Phasellus non dolor vitae turpis scelerisque rutrum. Donec mi arcu, dignissim at iaculis quis, eleifend eu nulla. Phasellus volutpat nunc non quam auctor, rutrum condimentum ante feugiat. Sed quis mi a mi hendrerit maximus. Proin iaculis laoreet ipsum ut pellentesque. Curabitur vulputate lobortis justo, quis sollicitudin nisi mollis cursus.
 
-When you are in the car, or in the coffee shop or wherever you are and the song comes on you just have to stop and listen to it and sometimes once you start you have to keep listening until the end of the song before you carry on with what you are doing.
+## Sed sed ligula 
+ut ex elementum semper sit amet ornare tortor. Vestibulum eu urna sed ex iaculis sagittis in congue dui. Nulla sed lacus ullamcorper, congue risus ac, fringilla magna. Vestibulum id leo commodo, vestibulum dui vel, aliquet tellus. Quisque vel bibendum sapien. Phasellus justo ante, viverra consectetur cursus a, eleifend a augue. Duis gravida tincidunt nisi, sed feugiat mauris ultricies vel. Curabitur faucibus, urna ac aliquam mattis, enim turpis placerat est, in ultricies erat sem id justo. Vestibulum varius varius mauris, vel semper purus luctus nec. Integer vitae tempus mi. Vestibulum id orci sed leo sodales vehicula.
 
-Nothing else matters except that moment. You wait for that beat to build and that solo to hit that high note and that chorus to start so you can sing along as loud as you can. You don't care who else can hear you, you want to share the greatness of the song with the rest of the world.
+Vivamus sagittis sapien sem, malesuada rhoncus mi pellentesque id. Nunc purus elit, iaculis a cursus vitae, ultricies ut ligula. Etiam vel risus vitae turpis condimentum malesuada. Nam in sem quis neque euismod luctus. Curabitur eu finibus felis. Suspendisse ornare facilisis justo in aliquet. Suspendisse nisl nunc, elementum vel turpis et, placerat feugiat tortor. Nulla hendrerit rutrum sapien ut varius. Etiam vitae vehicula lorem. Donec eget gravida urna, ut viverra ante. Sed ut quam sagittis, tempus elit sit amet, varius nulla. Duis sed lacus a enim mattis aliquam. Nunc eget tortor nec nunc maximus pellentesque. Fusce quam elit, tempor quis massa tempus, feugiat dignissim nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-## Could anything be better than this?
+Integer iaculis leo ac augue maximus blandit. Mauris sit amet libero nec lacus viverra aliquam at ac arcu. Sed eget tellus vitae augue fermentum iaculis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas tempus diam vel magna lacinia, sed accumsan massa maximus. Phasellus ex enim, fermentum eu nisl et, viverra tempus tellus. Phasellus condimentum ut urna vitae rhoncus. Vestibulum mollis, lectus at hendrerit pretium, augue ipsum volutpat tortor, a elementum tellus dui vel purus. Nunc consequat cursus tortor id laoreet. Suspendisse molestie mauris a massa placerat imperdiet. Aliquam sem nisl, ultricies ac velit in, malesuada efficitur sapien. Nullam interdum purus eu magna consectetur, sed molestie ex feugiat.
 
-One day, you get lucky and get the tickets to see the band you have always wanted to see play live, in person. You get there, not sure what to expect looking around at the other people in the crowd. The crowd gets bigger and bigger, more and more people arriving ready for the band to start playing any time now.
+## Curabitur gravida nunc vel urna tincidunt
+vitae consectetur tortor porta. Cras tempor mattis elit eu elementum. Aenean vel odio sed tortor semper blandit vestibulum id leo. Aenean at porta ante, quis malesuada tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non leo in nisl interdum lobortis ac egestas mi. Phasellus id luctus dui. Maecenas aliquam velit dolor, vitae viverra erat rutrum a. Phasellus dictum ligula libero, sed maximus quam lacinia eget.
 
-A small group in the crowd start cheering and clapping, then the people next to them start joining in. Before long the whole crowd are clapping. You look down at your hands and you are clapping along without even knowing it. You join in with the cheer as the excitement builds and then the lights shine bright on the stage and the band come out and you cheer as loud as you can.
-
-The band take their places by their instruments and then look out over the crowd. The lead singer shouts hello and the screaming gets even louder. You didn't think anything could be louder than this crowd, but then the band count in and the drummer starts the beat before the rest of the band join in.
-
-## You are hit by a wave of sound.
-
-The bass is so strong it causes you chest to vibrate in time with the music. Your ears are thundered with an explosion of sound.
+Donec at mi sit amet tellus tincidunt elementum luctus ut velit. In hac habitasse platea dictumst. Quisque risus sem, lobortis a volutpat a, feugiat at urna. Morbi sagittis nisl sagittis ultricies tincidunt. Nam et interdum nunc. Nam non lacus sodales, feugiat magna eu, fermentum odio. Praesent ut fermentum turpis. Duis nec nibh a tortor viverra congue sit amet ac elit. Nulla dapibus hendrerit purus finibus faucibus. Aliquam porttitor purus ut dolor dapibus, id dapibus ex porta. Pellentesque vehicula, nulla in facilisis facilisis, leo dui rutrum risus, et aliquet mi orci efficitur velit. Etiam pellentesque, urna eu varius lacinia, mi felis imperdiet arcu, vitae fermentum arcu sapien sed est. Vivamus dapibus augue non pulvinar bibendum. Mauris vel hendrerit tellus. Cras vel velit eget metus rhoncus tristique. Cras quis hendrerit nulla.
 
 ![Test Image](/assets/images/hero_turbine1.jpg "JUAS JUAS JUAS")
 
-And then you smile. This is what you have come for. A feeling of belonging, singing and cheering along with another 100 thousand people. All singing the same words together to the music.
+Suspendisse tincidunt ligula turpis, in lobortis urna tempus ut. Donec in massa sed justo pharetra eleifend a non odio. Vestibulum dolor nisi, laoreet a condimentum non, imperdiet eget nunc. In vel fermentum felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In a sagittis erat. Maecenas egestas tempor venenatis.
 
-The time flies and song after song are played. You wish time would slow down so you could stretch this feeling and this moment out for as long as possible, but you know it has to end soon. The band build up the last song and make it longer and longer before they peak. And then that's it. The band walk off the stage to the ear splitting cheering of the crowd and the lights start to fade.
+Vivamus id fermentum velit, pretium venenatis eros. Nulla semper leo sapien, eget pretium est faucibus nec. Vivamus tincidunt quam a eros dignissim, sit amet tincidunt diam finibus. Proin fringilla ante lorem, eget vehicula sapien malesuada porta. Suspendisse et enim quis mi porta porttitor nec eu odio. Aliquam erat volutpat. Sed vel justo ligula. Phasellus finibus arcu sed justo sollicitudin, sed ullamcorper nunc vehicula. Phasellus ut ex fermentum, pellentesque mi scelerisque, vehicula libero. Nunc euismod congue augue quis egestas. Aliquam semper ipsum lorem, quis fringilla nunc fermentum et. Phasellus et dolor eu dui posuere porta sit amet eget nibh. Donec at pharetra elit, at rutrum tortor. Nulla condimentum nulla sit amet pretium iaculis. Nulla malesuada odio a dui varius luctus.
 
-The band have gone but the crowd remain, chanting more, more, more. We want more, we want more. You join in with the chant, clapping faster and faster, until your hands start hurting. Just when you think you can't cheer any louder or clap and more without causing permanent damage to your hands you see the lights come back on and the band walk back out on to the stage.
+## Fusce sit amet scelerisque enim 
+Fusce pharetra felis leo, interdum hendrerit ex facilisis ut. Sed consequat massa nec tortor vestibulum, eu consequat risus mollis. Sed ultrices ipsum id cursus vehicula. Vivamus et suscipit libero, venenatis feugiat lorem. Cras porta eget orci id aliquet. Donec augue nulla, consectetur eu tincidunt in, tincidunt ac lorem. Vivamus dapibus sapien sit amet bibendum semper. Etiam vulputate leo vitae libero sagittis, non luctus erat suscipit. Aenean in tortor malesuada, consectetur erat eu, venenatis eros. Phasellus ut felis ullamcorper, tempus mauris in, euismod odio. Sed non posuere dolor.
 
-## Time for the encore!
+Nulla facilisi. Maecenas tincidunt gravida magna ornare congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas eros metus, varius venenatis luctus mollis, ornare sed dolor. Donec feugiat, lacus nec scelerisque fermentum, ante turpis scelerisque massa, in vehicula felis nisi quis magna. Nullam non nibh felis. Quisque et sollicitudin nisl. Quisque finibus convallis elit fermentum posuere. Morbi pharetra, dolor in maximus consectetur, enim ante consequat augue, id ultricies libero nibh volutpat elit. Sed dui lectus, malesuada eu hendrerit ut, congue id quam. Maecenas pretium mi eget mi iaculis, a volutpat nisi vehicula. Phasellus finibus ante ac libero rutrum fermentum. Sed et cursus sapien. Mauris ultricies hendrerit tincidunt. Sed et porttitor lacus. Pellentesque luctus sem id rutrum pharetra.
 
-The band start playing again, starting the encore, and this time they are playing that song. Your favourite song. You get that feeling you get every time you hear that song. The hairs standing up on the back of your neck and your heart beating faster and faster.
+Curabitur non finibus ipsum. Duis facilisis dolor nibh, non placerat lectus tempor a. Donec quam neque, facilisis vitae lacus ut, efficitur cursus urna. Curabitur a libero sed ipsum sagittis hendrerit. Maecenas at lobortis turpis, in faucibus nisi. Aliquam interdum metus nec dictum varius. Mauris blandit est pulvinar velit euismod accumsan mattis et mi. Nulla facilisi. Vestibulum ultricies nec dui quis suscipit. Proin et est sem. Nam pretium ex eu nisi malesuada sodales lacinia id nibh. Vestibulum ultrices ligula vitae est aliquet iaculis. Nunc cursus, mauris non tincidunt ornare, odio felis consectetur justo, in mollis nisi libero quis ex. Nam eu mauris mollis, dictum ipsum consequat, tincidunt turpis. Etiam dignissim neque nec sapien luctus egestas. Pellentesque viverra iaculis lorem, sit amet semper eros semper id.
 
-You thought the last song they played was amazing, but this time its even better. Building and building and building to the most incredible solo and then another chorus with everyone in the crowd stood up dancing and singing together.
+Curabitur vitae leo mollis, dapibus tortor condimentum, rutrum urna. Donec sed volutpat augue. Nunc eu tincidunt urna. Donec dignissim turpis non leo sollicitudin molestie. In aliquet orci vel sodales aliquet. Donec tempus sed neque pharetra facilisis. Maecenas quis ante tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean at aliquam tortor. Cras lobortis malesuada auctor. Cras sit amet sollicitudin felis. Sed sed elementum quam, at tincidunt erat.
 
-But again, you know it must end and after a series of solos from all the different band members and the final sing along chorus, the song finally ends.
+## Phasellus non commodo mi
+vitae viverra lectus. Vestibulum tempus vestibulum risus sit amet iaculis. Cras mollis, quam ut vestibulum ornare, ligula est vestibulum nibh, id fringilla enim erat volutpat odio. Integer pellentesque mauris et erat rhoncus, in tempor metus euismod. Phasellus eu maximus magna. Nulla porttitor vestibulum orci nec aliquam. Sed a convallis ex. Nulla suscipit finibus ligula, quis varius dui efficitur ut. Suspendisse lacinia gravida leo. Donec dictum, odio varius aliquet finibus, turpis sapien fringilla nunc, at ullamcorper augue arcu at tellus. Pellentesque vestibulum efficitur cursus. Fusce condimentum mi ut nisi semper, efficitur viverra justo ultrices. Etiam non tellus ultrices, dapibus felis eu, dictum ante. Donec vel magna turpis. Suspendisse vel pretium eros, non tincidunt lorem.
 
-This time the band walks off the stage waving to the crowd, before coming back to take a bow. This time it really is the end of the gig.
+Aliquam scelerisque nisi ac lorem pharetra egestas. Vivamus mollis augue et lectus porta scelerisque. Phasellus egestas dui dolor, non semper augue bibendum eget. Donec tincidunt est sed dapibus viverra. Praesent elementum orci nec pellentesque laoreet. Vivamus dictum velit vitae felis vehicula consectetur quis eget elit. Vestibulum imperdiet massa at mi dignissim, eu facilisis lorem lobortis. Proin ac felis consectetur, tincidunt lorem vel, consequat enim.
 
-## What an experience, it will stay with you forever.
+Etiam vitae lorem et nisi bibendum efficitur vel vel neque. Cras non cursus nibh. Maecenas eget erat cursus, vulputate quam at, maximus arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec elit ligula, scelerisque vel mi in, consequat porta ex. Etiam non mollis orci. Ut ullamcorper euismod dictum. Duis placerat nec urna et hendrerit. Integer rutrum augue vitae lectus interdum pellentesque. Vivamus in vehicula nisl. Ut at ligula sed magna ornare laoreet. Quisque ligula leo, suscipit quis leo ac, pulvinar fringilla quam. Sed vehicula lobortis finibus. Etiam tortor sem, semper a cursus sed, sagittis a turpis. Vestibulum vitae semper arcu.
 
-Next time you hear that song on the radio, you get that feeling again, but this time you know what it reminds you of, it reminds you of your unforgettable experience from your first gig!
-## Music is magic, it generates emotions.
+Aenean sem urna, molestie at ante quis, mattis dapibus nibh. Suspendisse sed lobortis ipsum, eu rhoncus metus. Aenean varius libero a neque pretium pellentesque. In vel orci nec velit commodo efficitur eget sit amet erat. Nam non tristique quam. Phasellus sollicitudin neque vitae augue scelerisque cursus. Nullam sodales magna est, eget rutrum erat dapibus aliquet. Mauris eu varius nisi, quis faucibus ex. Ut libero libero, mattis congue vehicula id, convallis vel eros. Nullam ante enim, porttitor sed ultricies rhoncus, volutpat in nulla. Pellentesque tincidunt fringilla ultricies. Phasellus at mollis mauris.
 
-Everyone has that special song that gives them that buzz, gives you goosebumps and makes your hair stand on end. Maybe it reminds you of a happy memory, maybe it reminds you of what you have, maybe it reminds you of someone special.
+## Pellentesque velit tortor
+sollicitudin sit amet dictum non, fermentum et ligula. Aliquam interdum ex sem, nec congue urna consequat ac. Praesent sagittis arcu massa, a vehicula nunc rutrum ultricies. Nunc rutrum iaculis elit, in gravida ligula sagittis at. Cras a ultricies erat. Aenean molestie massa suscipit, convallis augue ac, sollicitudin erat. In hac habitasse platea dictumst. Aliquam erat volutpat. Cras sollicitudin finibus velit eget rutrum. In id risus imperdiet, cursus dolor vel, euismod ante.
 
-When you are in the car, or in the coffee shop or wherever you are and the song comes on you just have to stop and listen to it and sometimes once you start you have to keep listening until the end of the song before you carry on with what you are doing.
+## Nulla facilisi
+Nullam condimentum quis magna sed ultrices. Quisque pretium vestibulum dui, non congue quam dapibus et. Etiam vulputate molestie risus eu blandit. Nunc tortor dui, viverra nec varius ut, ullamcorper eget velit. Fusce dictum auctor orci sed hendrerit. Sed at rutrum libero, id fermentum tellus. Vestibulum semper ipsum sit amet iaculis placerat. Sed non quam ut orci consequat aliquam. Morbi dolor ligula, rutrum et hendrerit vitae, rhoncus at arcu. Maecenas at nunc non tellus faucibus semper at at tellus.
 
-Nothing else matters except that moment. You wait for that beat to build and that solo to hit that high note and that chorus to start so you can sing along as loud as you can. You don't care who else can hear you, you want to share the greatness of the song with the rest of the world.
-
-## Could anything be better than this?
-
-One day, you get lucky and get the tickets to see the band you have always wanted to see play live, in person. You get there, not sure what to expect looking around at the other people in the crowd. The crowd gets bigger and bigger, more and more people arriving ready for the band to start playing any time now.
-
-A small group in the crowd start cheering and clapping, then the people next to them start joining in. Before long the whole crowd are clapping. You look down at your hands and you are clapping along without even knowing it. You join in with the cheer as the excitement builds and then the lights shine bright on the stage and the band come out and you cheer as loud as you can.
-
-The band take their places by their instruments and then look out over the crowd. The lead singer shouts hello and the screaming gets even louder. You didn't think anything could be louder than this crowd, but then the band count in and the drummer starts the beat before the rest of the band join in.
-
-## You are hit by a wave of sound.
-
-The bass is so strong it causes you chest to vibrate in time with the music. Your ears are thundered with an explosion of sound.
-
-And then you smile. This is what you have come for. A feeling of belonging, singing and cheering along with another 100 thousand people. All singing the same words together to the music.
-
-The time flies and song after song are played. You wish time would slow down so you could stretch this feeling and this moment out for as long as possible, but you know it has to end soon. The band build up the last song and make it longer and longer before they peak. And then that's it. The band walk off the stage to the ear splitting cheering of the crowd and the lights start to fade.
-
-The band have gone but the crowd remain, chanting more, more, more. We want more, we want more. You join in with the chant, clapping faster and faster, until your hands start hurting. Just when you think you can't cheer any louder or clap and more without causing permanent damage to your hands you see the lights come back on and the band walk back out on to the stage.
-
-## Time for the encore!
-
-The band start playing again, starting the encore, and this time they are playing that song. Your favourite song. You get that feeling you get every time you 
+Suspendisse sodales dui ut dui tincidunt luctus. Aliquam justo ante, viverra id scelerisque quis, vehicula a sem. Maecenas venenatis dignissim nulla, a ornare mauris viverra gravida. Suspendisse in congue nisl. Etiam ut est convallis, sagittis nisl vitae, volutpat quam. Etiam lobortis eleifend mi ut dignissim. Nullam risus augue, consectetur vel suscipit vel, convallis sit amet lectus. Phasellus turpis tellus, rhoncus ut hendrerit ac, maximus vel metus.
 
 
 {% highlight C++ linenos%}

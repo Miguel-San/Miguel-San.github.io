@@ -3,7 +3,6 @@ layout: project
 toc: true
 permalink: /projects/test_project/
 
-featured: true
 tags:
   - CSS
   - C++
