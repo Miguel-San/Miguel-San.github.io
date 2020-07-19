@@ -23,6 +23,8 @@ bbbbbbbbbbbbbbbbbbbb
 
 ## Lorem Ipsum
 
+$$\int_a^b x^2\,dx$$
+
 ---
 
 [^1]: Test
