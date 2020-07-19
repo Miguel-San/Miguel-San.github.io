@@ -8,6 +8,10 @@ title: Aerospace Eng. Student and Tech Enthusiast
 showcase: featured_projects
 ---
 
+<div class="notification is-danger">
+  Please, note that this site is under <strong>heavy development</strong>. There will be more content available soon.
+</div>
+
 ### Welcome!
 
 Welcome to my website! I'm Miguel Sánchez.
