@@ -1,6 +1,21 @@
+var rem = function (count)
+{
+    var unit = $('html').css('font-size');
+    
+    if (typeof count !== 'undefined' && count > 0)
+    {
+        return (parseInt(unit) * count);
+    }
+    else
+    {
+        return parseInt(unit);
+    }
+}
+
 function scrollToAnchor(target){	
 	console.log(target);
-	$('html, body').animate({scrollTop: target.offset().top - 75}, 'normal');
+	//$('html, body').animate({scrollTop: target.offset().top - 75}, 'normal');
+	$('html, body').animate({scrollTop: target.offset().top - rem(3.25)}, 'normal');
 }
 
 $(document).ready(function(){
