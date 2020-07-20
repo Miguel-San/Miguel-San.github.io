@@ -26,8 +26,8 @@ show_sidebar: false
 
         {% endif %}
         <div class="project-card-content">
-          <p class="project-title is-4">{{ project.title }}</p>
-          <p class="project-subtitle is-4">{{ project.subtitle }}</p>  
+          <p class="project-title is-4">{% t project.title %}</p>
+          <p class="project-subtitle is-4">{% t project.subtitle %}</p>  
           <!-- <p class="project-description" align="justify">{{project.description}}</p> -->
 
           {% if project.tags %}
@@ -42,7 +42,7 @@ show_sidebar: false
 
           <br>
           <div class="has-text-centered">
-              <span class="button is-primary">View</span>
+              <span class="button is-primary">{% t global.view %}</span>
           </div>
 
         </div>

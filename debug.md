@@ -1,5 +1,6 @@
 ---
 layout: page
+date: 2020-07-04 12:19:48 +0200
 
 ---
 
@@ -31,3 +32,23 @@ I should remove it from the master branch but I decided to leave it as an Easter
 {% assign name = item.name | prepend:"global." %}
 <p>{{ name }}</p>
 {% endfor %}
+
+---
+
+{% assign m = page.date | date: "%-m" %}
+{% assign mon = m | prepend: "global.months." %}
+{{ page.date | date: "%-d"}}
+{% t mon %}
+{{ page.date | date: "%Y" }}
+
+{{ mon }}
+
+---
+
+Baseurl:   {{ site.baseurl }}
+
+
+Baseurl_root: {{ site.baseurl_root }}
+
+
+Pageurl: {{ page.url }}

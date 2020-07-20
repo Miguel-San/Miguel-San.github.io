@@ -20,6 +20,10 @@
         </div>
     </div>
     <footer class="card-footer">
-        <p class="card-footer-item">Published: {{ post.date | date: "%b %-d, %Y" }}</p>
+        <p class="card-footer-item">{% assign m = post.date | date: "%-m" %}
+                                    {% assign mon = m | prepend: "global.months." %}
+                                    {{ post.date | date: "%-d"}}
+                                    {% t mon %}, 
+                                    {{ post.date | date: "%Y" }}</p>
     </footer>
 </div>
