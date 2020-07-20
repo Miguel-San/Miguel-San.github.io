@@ -8,8 +8,8 @@
 	<section class="hero" style="background: url({{ include.image }});">
 		<div class="hero-body">
 		    <div class="container">
-		      <p class="title">Hero title</p>
-		      <p class="subtitle">Hero subtitle</p>
+		      <p class="title"></p>
+		      <p class="subtitle"></p>
 		    </div>
 		</div>
 
@@ -19,11 +19,11 @@
 	<div class="showcase-content">
 		<div class="columns is-centered">
 			<div class="column is-12">
-				<p class="title">{{ include.title }}</p>
-				<p class="subtitle">{{ include.subtitle }}</p>
+				<p class="title">{% t include.title %}</p>
+				<p class="subtitle">{% t include.subtitle %}</p>
 			</div>
 		</div>		
-		<p align="justify">{{ include.description }}</p>
+		<p align="justify">{% t include.description %}</p>
 
 		{% if include.tags %}
 		<div class="tags is-centered">
@@ -36,7 +36,7 @@
 		{% endif %}
 
 		<div class="has-text-centered">
-	      <a href="{{ include.url }}"><span class="button is-primary">View</span></a>
+	      <a href="{{ include.url }}"><span class="button is-primary">{% t global.view %}</span></a>
 	  	</div>
   	</div>
 </section>

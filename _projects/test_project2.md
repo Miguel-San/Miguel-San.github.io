@@ -11,9 +11,9 @@ tags:
 permalink: /projects/test_project2/
 hero_image: /assets/images/hero_turbine1.jpg
 image: /assets/images/turbine1.jpg
-title: Test Project 2
-subtitle: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-description: Suspendisse justo erat, interdum a libero tempor, vulputate aliquam orci. Nam vulputate, felis id imperdiet iaculis, nisi enim mollis felis, sit amet fringilla diam libero ut enim. Etiam tortor sem, dapibus eu dolor id, dignissim convallis dolor. Aliquam varius orci elit, in maximus magna sodales id. Donec ut cursus odio. Vestibulum porta, velit eget eleifend vestibulum, risus felis dignissim ante, sed auctor nibh ipsum vitae mauris. Mauris fermentum urna enim, a facilisis nulla tristique vitae.
+title: projects.test_project2.title
+subtitle: projects.test_project2.subtitle
+description: projects.test_project2.description
 ---
 
 ## Etiam consectetur

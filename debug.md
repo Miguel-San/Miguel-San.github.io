@@ -24,3 +24,10 @@ I should remove it from the master branch but I decided to leave it as an Easter
 {% endfor %}
 
 {{ projects_title }}
+
+---
+
+{% for item in site.data.navigation %}
+{% assign name = item.name | prepend:"global." %}
+<p>{{ name }}</p>
+{% endfor %}

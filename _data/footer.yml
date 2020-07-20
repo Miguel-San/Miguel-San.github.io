@@ -1,6 +1,6 @@
-- name: Projects
+- name: projects
   link: /projects/
-- name: Blog
+- name: blog
   link: /blog/
-- name: About
+- name: about
   link: /about/

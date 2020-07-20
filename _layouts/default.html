@@ -30,12 +30,12 @@
                 </div>
                 {% if site.posts and page.show_sidebar %}
                 <div class="column is-4-desktop is-12-tablet">
-                    <p class="title is-4">You can find me on</p>
+                    <p class="title is-4">{% t global.social_media_find %}</p>
                     {% include social_media.html %}       
 
                     {% include latest-posts.html %}
 
-                    <p class="title is-4">Featured Projects</p>
+                    <p class="title is-4">{% t global.featured_projects %}</p>
                     {% for project in site.projects %}
                         {% if project.featured %}
 

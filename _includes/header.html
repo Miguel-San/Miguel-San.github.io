@@ -1,6 +1,5 @@
 {% for item in site.pages %}
     {% if item.name == "projects.md" %}
-        {% assign projects_title = item.title %}
         {% assign projects_permalink = item.permalink %}
     {% endif %}
 {% endfor %}
@@ -20,20 +19,21 @@
         </div>
         <div class="navbar-menu" id="navMenu">
             <div class="navbar-start">
-                <a href="{{ site.baseurl }}/" class="navbar-item {% if page.url == "/" %}is-active{% endif %}">Home</a>
+                <a href="{{ site.baseurl }}/" class="navbar-item {% if page.url == "/" %}is-active{% endif %}">{% t global.home %}</a>
                 <div class="navbar-item has-dropdown is-hoverable">
-                        <a href="{{ projects_permalink | absolute_url }}" class="navbar-link {% if projects_permalink == page.url | relative_url %}is-active{% endif %}">{{ projects_title }}</a>
+                        <a href="{{ projects_permalink | absolute_url }}" class="navbar-link {% if projects_permalink == page.url | relative_url %}is-active{% endif %}">{% t global.projects %}</a>
                         <div class="navbar-dropdown">
                             {% for project in site.projects %}
-                            <a href="{{ project.permalink | absolute_url }}" class="navbar-item {% if project.permalink == page.url | relative_url %}is-active{% endif %}">{{ project.title }}</a>
+                            <a href="{{ project.permalink | absolute_url }}" class="navbar-item {% if project.permalink == page.url | relative_url %}is-active{% endif %}">{% t project.title %}</a>
                             {% endfor %}
                         </div>
                     </div>
                 {% if site.data.navigation %}
                 {% for item in site.data.navigation %}
+                    {% assign name = item.name | prepend: "global." %}
                     {% if item.dropdown %}
                     <div class="navbar-item has-dropdown is-hoverable">
-                        <a href="{{ item.link | absolute_url }}" class="navbar-link {% if item.link == page.url | relative_url %}is-active{% endif %}">{{ item.name }}</a>
+                        <a href="{{ item.link | absolute_url }}" class="navbar-link {% if item.link == page.url | relative_url %}is-active{% endif %}">{% t name %}</a>
                         <div class="navbar-dropdown">
                             {% for subitem in item.dropdown %}
                             <a href="{{ subitem.link | absolute_url }}" class="navbar-item {% if subitem.link == page.url | relative_url %}is-active{% endif %}">{{ subitem.name }}</a>
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     {% else %}
-                    <a href="{{ item.link | absolute_url }}" class="navbar-item {% if item.link == page.url | relative.url %}is-active{% endif %}">{{ item.name }}</a>
+                    <a href="{{ item.link | absolute_url }}" class="navbar-item {% if item.link == page.url | relative.url %}is-active{% endif %}">{% t name %}</a>
                     {% endif %}
                 {% endfor %}
                 {% endif %}

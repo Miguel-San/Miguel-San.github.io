@@ -25,10 +25,17 @@ google_analytics: UA-171671645-1
 paginate: 5
 paginate_path: "/blog/page:num/"
 
+
+#markdown and highlighter settings
 highlighter: rouge
 markdown: kramdown
 kramdown:
   math_engine: mathjax
+
+#multiple-languages-plugin settings
+languages: ["en", "es"]
+exclude_from_localizations: ["assets/*", "favicon.ico", "node_modules"]
+
 
 defaults:
   -
@@ -54,6 +61,7 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-multiple-languages-plugin
 
 exclude:
   - .sass-cache/
