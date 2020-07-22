@@ -26,6 +26,9 @@ bbbbbbbbbbbbbbbbbbbb
 
 $$\int_a^b x^2\,dx$$
 
+
+$$\alpha$$
+
 ---
 
 [^1]: Test
