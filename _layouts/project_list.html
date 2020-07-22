@@ -1,0 +1,56 @@
+---
+layout: default
+show_sidebar: false
+---
+
+<div class="columns is-multiline">
+
+  <div class="column is-12">
+    {{ page.content }}
+  </div>
+
+  {% assign sorted_projects = site.projects| sort:page.sort %}
+
+  {% for project in sorted_projects %}
+  <div class="column is-6-desktop is-12-tablet">
+
+    <a href="{{ project.url | absolute_url }}">
+
+      <div class="project-card">
+        {% if project.image %}
+        <div class="project-card-image">
+          <figure class="image is-4by3">
+            <img src="{{ project.image }}" alt="{{ project.title }}" />
+          </figure>
+        </div>
+
+        {% endif %}
+        <div class="project-card-content">
+          <p class="project-title is-4">{% t project.title %}</p>
+          <p class="project-subtitle is-4">{% t project.subtitle %}</p>  
+          <!-- <p class="project-description" align="justify">{{project.description}}</p> -->
+
+          {% if project.tags %}
+          <div class="tags is-centered">
+          {% for tag in project.tags %}
+
+          <div class="tag is-outlined">{{ tag }}</div>
+
+          {% endfor %}
+          </div>
+          {% endif %}
+
+          <br>
+          <div class="has-text-centered">
+              <span class="button is-primary">{% t global.view %}</span>
+          </div>
+
+        </div>
+      </div>
+
+    </a>
+
+  </div>
+{% endfor %}
+</div>
+

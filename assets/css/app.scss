@@ -1,0 +1,126 @@
+---
+
+---
+$primary: #333333;
+$primary_hover: #595959;
+
+/*.content, .subtitle.is-5{
+
+	text-align: justify !important;
+}*/
+
+.lang-item{
+	font-size: x-large;
+}
+
+.footnote{
+	//text-decoration: underline !important;
+	font-weight: bold !important;
+}
+
+.is-darklink{
+	color: $primary !important;
+	transition: 0.2s;
+}
+
+.is-darklink:link{
+	color: $primary !important;
+	transition: 0.2s;
+}
+
+.is-darklink:hover{
+	color: $primary_hover !important;
+	transition: 0.2s;
+}
+
+.project-card{	
+	@extend .card;
+	overflow: hidden;
+	background-color: $primary !important;
+}
+
+.project-card:hover .project-card-image{
+	//background: lighten($primary, 75%);
+	filter: opacity(10%);
+	transition: 0.3s ease-in-out;
+}
+
+.project-card .project-card-image{
+	@extend .card-image;
+	transition: 0.3s ease-in-out;
+}
+
+.project-card-content{
+	@extend .card-content;
+	position: absolute;
+	overflow: hidden;
+	transform: translateY(calc(100% - 4.5rem));
+	transition: 0.3s ease-in-out;
+	width: 100%;
+	max-height: 100%;
+	background-color: whitesmoke !important;
+	//background: linear-gradient(0deg, rgba(51,51,51,0.75) 0%, rgba(51,51,51,0.75) 25%, rgba(51,51,51,0) 100%);
+	//background-image: linear-gradient(rgba(20, 20, 20,0), rgba(0, 0, 0,1)) !important;
+	//background-color: $primary !important;
+
+	bottom: 0px;
+	left: 0px;
+}
+
+.project-card:hover .project-card-content{
+	transform: translateY(0%);
+	transition: 0.3s ease-in-out;
+}
+
+.project-title{
+	@extend .title ;
+	//color: $card-text !important;
+	text-align: center !important;
+	margin-bottom: 2.5rem !important;
+}
+
+.project-subtitle{
+	@extend .subtitle;
+	//color: $card-text !important;
+	text-align: center;
+}
+
+.project-description{
+	width: 100%;
+	//color: $card-text;
+	overflow: hidden;
+	white-space: initial;
+
+	text-overflow: ellipsis;
+  	/*max-height: 7.2em;
+  	line-height: 1.8em;*/
+  	display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+
+.highlight {
+
+	text-align: left !important;
+}
+
+.button:hover{
+	background: $primary_hover !important;
+	transition: 0.2s;
+}
+
+.button{
+	transition: 0.2s;
+	overflow: hidden;
+}
+
+.tag:not(body).is-outlined{
+
+	border: solid 1px;
+	border-width: 1px !important;
+	background: transparent !important;
+	border-color: $primary !important;
+	color: $primary !important;
+}
+
+@import "_main";

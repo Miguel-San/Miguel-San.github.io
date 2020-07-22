@@ -1,0 +1,38 @@
+<footer class="footer">
+    <div class="container">        
+        {% if site.footer_menu %}
+            <div class="columns is-multiline is-vcentered">
+                <div class="column is-4"> 
+                    <div class="columns is-centered is-multiline">
+                        {% for item in site.data[site.footer_menu] %}
+                        {% assign name = item.name | prepend: "global." %}
+                            <div class="column is-3">
+                            </div>
+                            <div class="column is-5">
+                                <div class="content">
+                                    <div>
+                                        <a href="{{ item.link | absolute_url }}" class="link">{% t name %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4">
+                            </div>
+                        {% endfor %}
+                    </div>
+                 </div>
+
+                 <div class="column is-4 has-text-centered">
+                     <p>{% t global.social_media_find %}</p><br>
+                     {% include social_media.html %}
+                 </div>
+
+
+                {% translate_file footer/license.html %}
+            </div>
+        {% else %}
+            {% translate_file footer/license.html %}
+        {% endif %}
+
+        {% translate_file footer/theme_atribution.html %}
+    </div>
+</footer>

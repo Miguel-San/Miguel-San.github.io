@@ -1,0 +1,77 @@
+#General site settings
+title: Miguel Sánchez
+tagline: Miguel Sánchez
+description: >- # this means to ignore newlines until "baseurl:"
+  I'm an Aerospace Engineering student and tech enthusiast.
+  In this website I will be uploading my personal projects as well as posts attending varios subjects like Arduino, Programming and Electronics among others.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+email: sanchez.dom.miguel@gmail.com
+twitter_username: _Miguel_San
+github_username:  Miguel-San
+linkedin_username: miguel-sanchez-dominguez
+image: /assets/images/logo.jpg
+favicon: /favicon.ico
+#hide_share_buttons: true
+
+#theme: bulma-clean-theme
+#remote_theme: chrisrhymes/bulma-clean-theme
+
+footer_menu: footer
+
+google_analytics: UA-171671645-1
+
+#Pagination settings
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+
+#markdown and highlighter settings
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
+
+#multiple-languages-plugin settings
+languages: ["en", "es"]
+exclude_from_localizations: ["assets/*", "favicon.ico", "node_modules"]
+
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      author: "Miguel Sánchez"
+      layout: post
+      #hero_image: /path/to/hero-image.jpg
+      show_sidebar: true
+
+
+collections:
+  projects:
+    output: true 
+    layout: project
+
+# Build settings
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-multiple-languages-plugin
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+    
