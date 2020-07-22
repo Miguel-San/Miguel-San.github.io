@@ -28,7 +28,3 @@ deploy:
   target_branch: master
   on:
     branch: source
-
-after_script:
-  - git checkout gh-pages
-  - git checkout master .
