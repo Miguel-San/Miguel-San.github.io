@@ -25,6 +25,6 @@ deploy:
   local_dir: "./_site"
   commit_message: "release: deploy %{project_name}"
   github_token: $github_token
-  target_branch: gh-pages
+  target_branch: master
   on:
     branch: source
