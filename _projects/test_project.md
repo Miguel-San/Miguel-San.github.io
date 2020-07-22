@@ -24,7 +24,7 @@ bbbbbbbbbbbbbbbbbbbb
 ## Lorem Ipsum
 
 
-$$a^2$$
+$$\int_a^b x\,dx$$
 
 ---
 
