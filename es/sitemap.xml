@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/es/jekyll/update/2020/07/04/welcome-to-jekyll.html</loc>
-<lastmod>2020-07-04T10:19:48+00:00</lastmod>
-</url>
-<url>
-<loc>/es/projects/test_project/</loc>
-<lastmod>2020-07-22T16:23:02+00:00</lastmod>
-</url>
-<url>
-<loc>/es/projects/test_project2/</loc>
-<lastmod>2020-07-22T16:23:02+00:00</lastmod>
+<loc>/es/arduino/2020/07/30/i2c-arduino.html</loc>
+<lastmod>2020-07-30T00:00:00+00:00</lastmod>
 </url>
 <url>
 <loc>/es/about/</loc>

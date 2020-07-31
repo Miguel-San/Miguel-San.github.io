@@ -1,27 +1,209 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es"><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="/es/feed.xml" rel="self" type="application/atom+xml" /><link href="/es/" rel="alternate" type="text/html" hreflang="es" /><updated>2020-07-22T16:23:02+00:00</updated><id>/es/feed.xml</id><title type="html">Miguel Sánchez</title><subtitle>I'm an Aerospace Engineering student and tech enthusiast. In this website I will be uploading my personal projects as well as posts attending varios subjects like Arduino, Programming and Electronics among others.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="/es/jekyll/update/2020/07/04/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-07-04T10:19:48+00:00</published><updated>2020-07-04T10:19:48+00:00</updated><id>/es/jekyll/update/2020/07/04/welcome-to-jekyll</id><content type="html" xml:base="/es/jekyll/update/2020/07/04/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es"><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="/es/feed.xml" rel="self" type="application/atom+xml" /><link href="/es/" rel="alternate" type="text/html" hreflang="es" /><updated>2020-07-31T13:08:31+00:00</updated><id>/es/feed.xml</id><title type="html">Miguel Sánchez</title><subtitle>I'm an Aerospace Engineering student and tech enthusiast. In this website I will be uploading my personal projects as well as posts attending varios subjects like Arduino, Programming and Electronics among others.</subtitle><entry><title type="html">El Bus I2C con Arduino</title><link href="/es/arduino/2020/07/30/i2c-arduino.html" rel="alternate" type="text/html" title="El Bus I2C con Arduino" /><published>2020-07-30T00:00:00+00:00</published><updated>2020-07-30T00:00:00+00:00</updated><id>/es/arduino/2020/07/30/i2c-arduino</id><content type="html" xml:base="/es/arduino/2020/07/30/i2c-arduino.html">&lt;p&gt;El Bus I2C fue desarrollado por Philips al principio de los años 80 para proporcionar una forma de comunicar múltiples circuitos integrados en la misma placa. El nombre es una abreviación de &lt;em&gt;Inter-Integrated Circuit&lt;/em&gt; (Circuito Inter-Integrado) y también se puede encontrar como IIC o I&lt;sup&gt;2&lt;/sup&gt;C. Como originalmente era una marca registrada, otras compañías desarrollaron protocolos similares, como Atmel, con el protocolo TWI (&lt;em&gt;Two Wire Interface&lt;/em&gt; o Interfaz de dos hilos).&lt;/p&gt;
 
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+&lt;div class=&quot;notification is-info is-light&quot;&gt;
+Ten en cuenta que, aunque &lt;strong&gt;TWI&lt;/strong&gt; e &lt;strong&gt;I2C&lt;/strong&gt; son &lt;strong&gt;protocolos diferentes&lt;/strong&gt;, son casi idénticos, exceptuando algunas particularidades como la´posibilidad de usar direcciones de 10 bits. Por ello, &lt;strong&gt;son compatibles&lt;/strong&gt;.
+&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;image is-16by9&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/arduino-i2c/I2C_Bus_es.png&quot; title=&quot;Estructura del I2C&quot; /&gt;
+  &lt;figcaption&gt;Estructura del I2C&lt;/figcaption&gt;
+&lt;/figure&gt;
 
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;Es un protocolo &lt;strong&gt;síncrono&lt;/strong&gt;, lo que significa que necesita una señal de reloj para coordinar sus operaciones, y sigue una arquitectura de &lt;strong&gt;maestro-escalvo&lt;/strong&gt;, lo que significa que un dispositivo&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; coordina cada acción y al resto de los dispositivos. Para ello, el bus solo necesita dos hilos: &lt;strong&gt;SDA&lt;/strong&gt; (o &lt;em&gt;Serial Data&lt;/em&gt;) y &lt;strong&gt;SCL&lt;/strong&gt; (o &lt;em&gt;Serial Clock&lt;/em&gt;), como se ve en la anterior imagen.&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;notification is-info is-light&quot;&gt;
+El &lt;strong&gt;reloj&lt;/strong&gt; puede establecerse a diferentes velocidades. La velocidad estándar llega hasta los 100 kHz. Para los dispositivos que requieran de comunicaciones más rápidas, el &lt;em&gt;fastmode&lt;/em&gt; alcanza los 400 kHz y el &lt;em&gt;High Speed mode&lt;/em&gt; llega hasta 3.4 MHz.
+&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;la-estructura-de-los-datos&quot;&gt;La Estructura de los Datos&lt;/h2&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &quot;Servo.h&quot;
+&lt;p&gt;Los datos son enviados a través de los hilos SDA y SCL de acuerdo a la siguiente estructura:&lt;/p&gt;
+
+&lt;p&gt;Todo paquete de datos comienza con una condición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START&lt;/code&gt;. Esta está definida por una transición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt; a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOW&lt;/code&gt; en el hilo SDA mientras SCL se mantiene en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt;. Debe ser escrita por el dispositivo maestro.&lt;/p&gt;
+
+&lt;p&gt;Después viene la dirección (o &lt;strong&gt;&lt;em&gt;address&lt;/em&gt;&lt;/strong&gt;) del esclavo, que debe ser única para cada uno. Para ello se utilizan 7 bits que proporcionan &lt;strong&gt;128 direcciones posibles&lt;/strong&gt;, de las cuales &lt;strong&gt;16 están reservadas&lt;/strong&gt;, quedando &lt;strong&gt;112 direcciones para dispositivos&lt;/strong&gt;. Este número puede ser mayor si se utilizan direcciones de 10 bits pero, ya que es una práctica poco habitual, no se verá en este post. El byte es terminado por el bit &lt;strong&gt;&lt;em&gt;data direction&lt;/em&gt;&lt;/strong&gt; (o de sentido de los datos), siendo un cero una transmisión (se escribe en la memoria del esclavo) y un uno una petición de datos (se lee de la memoria del esclavo).&lt;/p&gt;
+
+&lt;p&gt;Tras el byte de dirección viene el bit de &lt;strong&gt;&lt;em&gt;acknowledge&lt;/em&gt;&lt;/strong&gt; (o de reconocimiento). Para este bit, el maestro libera la línea de SDA para que el esclavo pueda utilizarla. Si el esclavo recibe la información correctamente establece la línea a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOW&lt;/code&gt; y la mantiene estable durante un pulso, lo que significa que el byte ha sido reconocido (&lt;strong&gt;&lt;em&gt;Acknowledged&lt;/em&gt;&lt;/strong&gt;). Si el esclavo establece la línea a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt; significa que el byte no ha sido reconocido (&lt;strong&gt;&lt;em&gt;Not Acknowledged&lt;/em&gt;&lt;/strong&gt;). Esto puede ser causado por diferentes motivos, entre los que se encuentran que el receptor sea incapaz de comunicarse (por ejemplo, debido a una interrupción interna) o que el receptor no entiende la información recibida. En caso de que el byte sea &lt;strong&gt;&lt;em&gt;Not Acknowledged&lt;/em&gt;&lt;/strong&gt; la transmisón puede terminarse enviando una condición &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STOP&lt;/code&gt; o reiniciarse enviando una condición &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Los siguientes bytes son el propio mensaje. Dependiendo del dispositivo, puede haber más direcciones, esta vez especificando la dirección de memoria del esclavo sobre la que se va a escribir o leer. Después de cada byte, se envía un bit de &lt;em&gt;acknowledge&lt;/em&gt;. Este bit lo escribe el receptor de la información: el esclabo si se está escribiendo o el maestro si se está leyendo.&lt;/p&gt;
+
+&lt;p&gt;Después del último bit de &lt;em&gt;acknowledge&lt;/em&gt; el paquete de datos es terminado por una condición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STOP&lt;/code&gt;. Esta está definida de una forma similar a la condición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START&lt;/code&gt;. Mientras la línea del reloj está en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt;, la línea de SDA se cambia de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOW&lt;/code&gt; a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;La siguiente imagen es un ejemplo de un mensaje transmitido a través del bus.&lt;/p&gt;
+
+&lt;figure class=&quot;image is-16by9&quot;&gt;
+  &lt;img src=&quot;/assets/images/posts/arduino-i2c/I2C_data_structure_es.png&quot; title=&quot;Estructura de Datos del I2C&quot; /&gt;
+  &lt;figcaption&gt;Estructura de Datos del I2C&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;i2c-con-arduino&quot;&gt;I2C con Arduino&lt;/h2&gt;
+
+&lt;p&gt;Las placas &lt;strong&gt;Arduino&lt;/strong&gt;, como están basadas en microcontroladores de Atmel, &lt;strong&gt;incluyen soporte para comunicación TWI&lt;/strong&gt;, que como se vio antes, es &lt;strong&gt;compatible con I2C&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Los pines del chip de Atmel correspondientes a SDA y SCL están &lt;strong&gt;conectados físicamente&lt;/strong&gt; a dos pines del Arduino. Estos dos pines varían de un modelo a otro, como se ve en la siguiente tabla.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Placa&lt;/th&gt;
+      &lt;th&gt;Pin SDA&lt;/th&gt;
+      &lt;th&gt;Pin SCL&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UNO&lt;/td&gt;
+      &lt;td&gt;A4&lt;/td&gt;
+      &lt;td&gt;A5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NANO&lt;/td&gt;
+      &lt;td&gt;A4&lt;/td&gt;
+      &lt;td&gt;A5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MEGA&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;También existe la posibilidad de usar otros pines para la comunicación I2C usando librerías, pero como esto sería a través de software en vez de una conexión física, la velocidad máxima sería menor.&lt;/p&gt;
+
+&lt;p&gt;Para reducir y simplificar el código necesario para usar el bus I2C, las &lt;em&gt;Arduino Standard Libraries&lt;/em&gt; incluyen la &lt;a href=&quot;https://www.arduino.cc/en/reference/wire&quot;&gt;librería Wire&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;notification is-info is-light&quot;&gt;
+Aparte de la librería Wire, hay otras librarías para la comunicación I2C disponibles online, como &lt;a href=&quot;http://www.i2cdevlib.com/&quot;&gt;&lt;strong&gt;I2Cdevlib&lt;/strong&gt;&lt;/a&gt;, la cual utilizaremos con el &lt;strong&gt;MPU-6050&lt;/strong&gt; en futuros posts.
+&lt;/div&gt;
+
+&lt;p&gt;El uso más básico de la librería es el siguiente.&lt;/p&gt;
+
+&lt;p&gt;El bus I2C debe ser iniciado. Esto se realiza mediante &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.begin()&lt;/code&gt; y solo debe hacerse una vez. Después, dependiendo de si queremos escribir o leer de la memoria del esclavo, podemos tomar dos caminos.&lt;/p&gt;
+
+&lt;p&gt;Si queremos escribir, se inicia la transmisión con el dispositivo con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.beginTransmission(dirección)&lt;/code&gt;. Después, los bytes son puestos a espera con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.write()&lt;/code&gt; y se escriben cuando la transmisión se termina con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.endTransmission()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Si queremos leer, debemos usar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.requestFrom(dirección, número_de_bytes)&lt;/code&gt;. Esto pondrá en espera el número especificado de bytes y terminará la transmisión. Para leer los bytes se usa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.read()&lt;/code&gt;, que los irá devolviendo de uno en uno.&lt;/p&gt;
+
+&lt;p&gt;Como ejemplo del uso de la librería Wire, programaremos un &lt;strong&gt;escaner I2C&lt;/strong&gt;, útil para cuando no sabemos la dirección del dispositivo con el que queremos comunicarnos, lo que suele pasar cuando se trabaja con dispositivos clónicos ya que no suelen tener una documentación detallada. El script va a ser una versión simplificada del que se encuentra en &lt;a href=&quot;https://playground.arduino.cc/Main/I2cScanner/&quot;&gt;esta página&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;El programa buscará a través de todas las direcciones posibles, intentando establecer una comunicación y terminarla justo después. Si se encuentra un dispositivo, la dirección se escribe a través del puerto serie. Puedes &lt;strong&gt;descargar el script &lt;a href=&quot;/assets/downloadables/posts/i2c-arduino/I2C_scanning.ino&quot; download=&quot;&quot;&gt;aquí&lt;/a&gt;&lt;/strong&gt; o copiar el código de más abajo.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;Wire.h&amp;gt;
 &lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;pinMode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Wire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;I2C Scanner&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;digitalWrite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HIGH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>Miguel Sánchez</name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Scanning...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;Wire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beginTransmission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Wire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endTransmission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;I2C device found at address 0x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ 
+      &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Unknown error at address 0x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;    
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;No I2C devices found&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;done&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+    
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;para-más-información&quot;&gt;Para más información&lt;/h2&gt;
+
+&lt;p&gt;Si quieres leer más acerca de este bus, puedes leer las fuentes que he utilizado para escribir este post.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.i2c-bus.org/&quot;&gt;I2C-Bus.org [EN]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nxp.com/docs/en/user-guide/UM10204.pdf&quot;&gt;I2C-bus spec and user manual by NXP [EN]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;De hecho, tiene soporte para múltiples maestros, pero no se va a ver en este post. Visita &lt;a href=&quot;https://www.i2c-bus.org/multimaster/&quot;&gt;esta página&lt;/a&gt; para más información. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Miguel Sánchez</name></author><summary type="html">El Bus I2C fue desarrollado por Philips al principio de los años 80 para proporcionar una forma de comunicar múltiples circuitos integrados en la misma placa. El nombre es una abreviación de Inter-Integrated Circuit (Circuito Inter-Integrado) y también se puede encontrar como IIC o I2C. Como originalmente era una marca registrada, otras compañías desarrollaron protocolos similares, como Atmel, con el protocolo TWI (Two Wire Interface o Interfaz de dos hilos).</summary></entry></feed>
