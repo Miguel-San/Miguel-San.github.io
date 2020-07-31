@@ -1,12 +1,15 @@
 $comment_color: #2cb42c;
 $background: #161C23; //#272822
 
-.highlight {margin-left: 0em !important;}
+.highlight {margin-left: 0em !important; border-radius: 5px;}
+.highlight pre { padding: 15px; font-size: 0.85em;}
 .highlight table td { padding: 5px;}
-.highlight table pre { margin: 0;}
-.highlight table td.gutter {width: 5px;}
+.highlight table pre { margin: 0; padding: 5px; font-size: 0.85em;}
+.highlight table pre.lineno{border-right: 1px solid #646464; padding: 5px;}
+.highlight table td.gutter {width: 5px; text-align: right; padding: 5px;}
+.highlight table td.code{padding: 5px;}
 
-.highlight pre { background-color: $background; padding: 5px; color: #646464;}
+.highlight pre { background-color: $background; color: #646464;}
 .highlight .hll { background-color: $background; }
 .highlight .c { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */

@@ -22,7 +22,11 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
-{% highlight C++ %}
+{% highlight python %}
+import numpy as np
+{% endhighlight %}
+
+{% highlight C++ linenos %}
 
 #include "Servo.h"
 
