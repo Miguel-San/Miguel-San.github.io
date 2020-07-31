@@ -1,4 +1,4 @@
-<div class="notification is-danger">
+<div class="notification is-warning is-light">
   Por favor, ten en cuenta de que esta página está todavía <strong>bajo desarrollo</strong>. Habrá más contenido disponible pronto.
 </div>
 

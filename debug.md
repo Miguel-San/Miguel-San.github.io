@@ -16,6 +16,16 @@ I should remove it from the master branch but I decided to leave it as an Easter
 
 ### The debugging starts here
 
+$$\begin{pmatrix}
+1 & 2 & 3\\
+a & b & c
+\end{pmatrix}
+$$
+
+$$\int_a^b x\,dx$$
+
+---
+
 {% for item in site.pages %}
 	<p>{{ item.name }}</p>
     {% if item.name == "projects.md" %}
