@@ -1,7 +1,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% t page.title %} - {{ site.title }}</title>
+    <title>{% if page.layout == "post" %}{{ page.title }}{% else %}{% t page.title %}{% endif %} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/app.css">
     <link rel="shortcut icon" type="image/png"
           {% if site.favicon %} href="{{ site.favicon | preprends: site.baseurl_root }}" {% else %} href="{{ site.baseurl_root }}/favicon.png" {% endif %}
