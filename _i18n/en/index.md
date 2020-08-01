@@ -2,14 +2,14 @@
   Please, note that this site is under <strong>heavy development</strong>. There will be more content available soon.
 </div>
 
-### Welcome!
+## Welcome!
 
 Welcome to my website! I'm Miguel Sánchez.
 
-On this site you will find projects I made in the past as well as some useful information about solving problems using maths, physics and technology.  
-Definitely: Engineering!
+On this site you will find projects I made in the past as well as some useful information about solving problems using **maths**, **physics** and **technology**.  
+In short: **Engineering!**
 
-### Featured projects
+## Featured projects
 
 This is a list of some projects I made. You can find the entire list on the [Projects](/projects/) page.
 

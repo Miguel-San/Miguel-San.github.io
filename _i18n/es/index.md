@@ -6,8 +6,8 @@
 
 ¡Bienvenido a mi Web! Soy Miguel Sánchez.
 
-En esta Web encontrarás proyectos que he hecho en el pasado e información útil sobre cómo solucionar problemas utilizando matemáticas, física y tecnología.  
-En definitiva: ¡Ingeniería!
+En esta Web encontrarás proyectos que he hecho en el pasado e información útil sobre cómo solucionar problemas utilizando **matemáticas**, **física** y **tecnología**.  
+En definitiva: **¡Ingeniería!**
 
 ## Proyectos destacados
 
