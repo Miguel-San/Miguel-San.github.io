@@ -1,0 +1,35 @@
+global:
+  home: Inicio
+  projects: Proxectos
+  blog: Blog
+  about: Sobre min
+
+  social_media_find: Podes econtrarme en
+  share: Compárteo en
+  featured_projects: Proxectos Destacados
+  latest_posts: Últimos Posts
+  view: Ver
+  read_more: Ler Máis
+  previous: Previo
+  next: Seguinte
+  tocTitle: Contidos
+
+  months:
+    1: Xaneiro
+    2: Febreiro
+    3: Marzo
+    4: Abril
+    5: Maio
+    6: Xuño
+    7: Xullo
+    8: Agosto
+    9: Setembro
+    10: Outubro
+    11: Novembro
+    12: Decembro
+
+home:
+  title: Estudante de Enxeñaría Aeroespacial e Entusiasta da Tecnoloxía
+
+projects:
+  title: Proxectos

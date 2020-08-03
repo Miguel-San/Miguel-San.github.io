@@ -11,4 +11,4 @@ This site is newly born so it is in a very early stage of development. Even so, 
 ## If you find any errors
 
 If you find anything on this website you consider it's wrong, confusing or can be improved in any way, please tell me!
-You can find me on [Twitter](https://twitter.com/{{ site.twitter_username }}), [GitHub](https://github.com/{{ site.github_username }}) and [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}) or send me an email to [{{site.email}}](mailto:{{site.email}})
+You can find me on [Twitter](https://twitter.com/{{ site.twitter_username }}), [GitHub](https://github.com/{{ site.github_username }}) and [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}) or send me an email to [{{site.email}}](mailto:{{site.email}}).

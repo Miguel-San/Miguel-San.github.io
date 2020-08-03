@@ -33,7 +33,7 @@ kramdown:
   math_engine: mathjax
 
 #multiple-languages-plugin settings
-languages: ["en", "es"]
+languages: ["en", "es", "gl"]
 exclude_from_localizations: ["assets/*", "favicon.ico", "node_modules"]
 
 defaults:

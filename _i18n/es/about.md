@@ -11,4 +11,4 @@ Esta página Web apenas está comenzando por lo que está en una etapa muy tempr
 ## Si encuentras algún error
 
 Si encuentras algo en la página que consideres que está mal, es confuso o puede ser mejorado de alguna forma, por favor házmelo saber.  
-Puedes encontrarme en [Twitter](https://twitter.com/{{ site.twitter_username }}), [GitHub](https://github.com/{{ site.github_username }}) y [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}) o enviarme un email a [{{site.email}}](mailto:{{site.email}})
+Puedes encontrarme en [Twitter](https://twitter.com/{{ site.twitter_username }}), [GitHub](https://github.com/{{ site.github_username }}) y [LinkedIn](https://www.linkedin.com/in/{{ site.linkedin_username }}) o enviarme un email a [{{site.email}}](mailto:{{site.email}}).

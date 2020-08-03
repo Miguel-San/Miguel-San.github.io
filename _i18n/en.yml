@@ -34,12 +34,7 @@ home:
 projects:
   title: Projects
 
-  test_project:
-    title: Test
-    subtitle: This is a test
-    description: Un pangrama o frase holoalfabética es un texto que usa todas las letras posibles del alfabeto de un idioma. Los pangramas más llamativos son por lo general los que usan el menor número de letras; construir un pangrama que repita letras lo menos posible puede ser una tarea desafiante. Sin embargo, los pangramas que son largos, extremadamente adornados, cómicos o excéntricos son igualmente llamativos. 
-
-  test_project2:
-    title: Test Project 2
-    subtitle: Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-    description: Suspendisse justo erat, interdum a libero tempor, vulputate aliquam orci. Nam vulputate, felis id imperdiet iaculis, nisi enim mollis felis, sit amet fringilla diam libero ut enim. Etiam tortor sem, dapibus eu dolor id, dignissim convallis dolor. Aliquam varius orci elit, in maximus magna sodales id. Donec ut cursus odio. Vestibulum porta, velit eget eleifend vestibulum, risus felis dignissim ante, sed auctor nibh ipsum vitae mauris. Mauris fermentum urna enim, a facilisis nulla tristique vitae.
+  #project_name:
+    #title: title
+    #subtitle: subtitle
+    #description: description
