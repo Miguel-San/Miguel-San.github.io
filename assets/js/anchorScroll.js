@@ -31,4 +31,26 @@ $(document).ready(function(){
 		console.log("Menu");
 		scrollToAnchor($($(this).attr("href")));
 	});
+
+	$("#scroll-to-top").click(function(){
+		console.log("Top Page");
+		scrollToAnchor($("#top-page-anchor"));
+	});
+
+
+	$(window).scroll(function() {
+    var height = $(window).scrollTop();
+
+    if(height > 800 && $(window).width() >= 1024) {
+        $("#scroll-to-top").addClass("scroll-to-top-visible");
+    }
+
+    if(height < 400 && $(window).width() >= 1024){
+    	$("#scroll-to-top").removeClass("scroll-to-top-visible");
+    }
+
+    //console.log(height);
+});
+
+
 });
