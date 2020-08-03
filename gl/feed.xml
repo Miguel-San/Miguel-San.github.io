@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="gl"><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://miguel-san.github.io/gl/feed.xml" rel="self" type="application/atom+xml" /><link href="https://miguel-san.github.io/gl/" rel="alternate" type="text/html" hreflang="gl" /><updated>2020-08-03T17:53:25+00:00</updated><id>https://miguel-san.github.io/gl/feed.xml</id><title type="html">Miguel Sánchez</title><subtitle>I'm an Aerospace Engineering student and tech enthusiast. In this website I will be uploading my personal projects as well as posts attending varios subjects like Arduino, Programming and Electronics among others.</subtitle><entry><title type="html">O Bus I2C con Arduino</title><link href="https://miguel-san.github.io/gl/i2c-arduino/" rel="alternate" type="text/html" title="O Bus I2C con Arduino" /><published>2020-07-30T00:00:00+00:00</published><updated>2020-07-30T00:00:00+00:00</updated><id>https://miguel-san.github.io/gl/i2c-arduino</id><content type="html" xml:base="https://miguel-san.github.io/gl/i2c-arduino/">&lt;p&gt;O Bus I2C foi diseñado por Philips ao principio dos anos 80 para proporcionar unha forma de comunicar múltiples circuitos integrados na mesma placa. O nome é unha abreviación de &lt;em&gt;Inter-Integrated Circuit&lt;/em&gt; (out Circuito Inter-Integrado) e tamén pode ser atopado como IIC ou I&lt;sup&gt;2&lt;/sup&gt;C. Xa que orixinalmente era unha marca rexistrada, outras compañías desenvolveron protocolos similares, como Atmel co protocolo TWI (&lt;em&gt;Two Wire Interface&lt;/em&gt; ou Interface de dous fíos).&lt;/p&gt;
+
+&lt;div class=&quot;notification is-info is-light&quot;&gt;
+Ten en conta que, aínda que &lt;strong&gt;TWI&lt;/strong&gt; e &lt;strong&gt;I2C&lt;/strong&gt; son &lt;strong&gt;protocolos diferentes&lt;/strong&gt;, son case idénticos, exceptuando algunhas particularidades como a posibilidade de usar direccións de 10 bits. Por isto, &lt;strong&gt;son compatíbeis&lt;/strong&gt;.
+&lt;/div&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/posts/arduino-i2c/I2C_bus_gl.png&quot; title=&quot;Estructura do I2C&quot; alt=&quot;Estructura do I2C&quot; /&gt;
+  &lt;figcaption&gt;Estructura do I2C&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;É un protocolo &lt;strong&gt;síncrono&lt;/strong&gt;, o que significa que necesita unha sinal de reloxo para coordinar as súas operacións, e sigue unha arquitectura de &lt;strong&gt;mestre-escravo&lt;/strong&gt;, o que significa que un dispositivo&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; coordina cada acción e ao resto dos dispositivos. Para iso, o bus só necesita dous fíos: &lt;strong&gt;SDA&lt;/strong&gt; (ou &lt;em&gt;Serial Data&lt;/em&gt;) e &lt;strong&gt;SCL&lt;/strong&gt; (ou &lt;em&gt;Serial Clock&lt;/em&gt;), como se ve na seguinte imaxe.&lt;/p&gt;
+
+&lt;div class=&quot;notification is-info is-light&quot;&gt;
+O &lt;strong&gt;reloxo&lt;/strong&gt; pode configurarse a diferentes velocidades. A velocidade estándar chega ata os 100 kHz. Para os dispositivos que necesiten comunicacións más rápidas, o &lt;em&gt;fastmode&lt;/em&gt; alcanza os 400 kHz e o &lt;em&gt;High Speed mode&lt;/em&gt; chega ata os 3.4 MHz.
+&lt;/div&gt;
+
+&lt;h2 id=&quot;a-estrutura-dos-datos&quot;&gt;A Estrutura dos Datos&lt;/h2&gt;
+
+&lt;p&gt;Os datos envíanse ao través dos fíos SDA e SCL seguindo a seguinte estrutura:&lt;/p&gt;
+
+&lt;p&gt;Todo paquete de datos comeza con unha condicion de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START&lt;/code&gt;. Esta está definida por unha transición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt; a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOW&lt;/code&gt; no fío de SDA mentres SCL mantense en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt;, e é escrito polo mestre.&lt;/p&gt;
+
+&lt;p&gt;Despois ven a dirección (ou &lt;strong&gt;&lt;em&gt;address&lt;/em&gt;&lt;/strong&gt;) do escravo, que debe ser única para cada un. Para isto, utilízanse 7 bits que proporcionan &lt;strong&gt;128 direccións posíbeis&lt;/strong&gt;, das cales &lt;strong&gt;16 están reservadas&lt;/strong&gt;, quedando &lt;strong&gt;112 direccións para dispositivos&lt;/strong&gt;. Este número pode facerse maior se son empregadas direccións de 10 bits pero, xa que é unha práctica pouco habitual, non se verá neste post. O byte é terminado polo bit &lt;strong&gt;&lt;em&gt;data direction&lt;/em&gt;&lt;/strong&gt; (ou de sentido dos datos), sendo un cero unha transmisión (escríbese na memoria do escravo) e un un, unha petición de datos (lese da memoria do escravo).&lt;/p&gt;
+
+&lt;p&gt;Tras o byte de dirección ven o bit de &lt;strong&gt;&lt;em&gt;acknowledge&lt;/em&gt;&lt;/strong&gt; (ou de recoñecemento). Para este bit, o mestre libera o fío de SDA para que o escravo poda utilizala. Se o escravo recibe a información correctamente establece a liña en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOW&lt;/code&gt; e a mantén estable durante un pulso de reloxo, o que significa que o byte foi recoñecido (&lt;strong&gt;&lt;em&gt;Acknowledged&lt;/em&gt;&lt;/strong&gt;). Se o escravo establece a liña en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt; significa que o byte non foi recoñecido. Isto pode estar ocasionado por diferentes motivos, entre os que se encontran que o receptor sexa incapaz de comunicarse (por exemplo, debido a unha interrupción interna) ou que o receptor non entenda a información recibida. No caso de que o byte sexa &lt;strong&gt;&lt;em&gt;Not Acknowledged&lt;/em&gt;&lt;/strong&gt; a transmisión pode rematarse enviando unha condición &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STOP&lt;/code&gt; ou reiniciarse enviando unha condición &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Os seguintes bytes son a propia mensaxe. Dependendo do dispositivo, pode haber máis direccións, esta vez indicando a dirección de memoria do escravo sobre a cal vaise escribir ou ler. Despois de cada byte, envíase un bit de &lt;em&gt;acknowledge&lt;/em&gt;. Este bit o escribe o receptor da información: O escravo se estase a escribir ou o mestre se estase a ler.&lt;/p&gt;
+
+&lt;p&gt;Despois do último bit de &lt;em&gt;acknowledge&lt;/em&gt; o paquete de datos é terminado por unha condición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STOP&lt;/code&gt;. Esta está definida dunha forma similar á da condición de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;START&lt;/code&gt;. Mentres a liña de reloxo está en &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt;, a liña de SDA cambia de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LOW&lt;/code&gt; a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HIGH&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A seguinte imaxe é un exemplo de unha mensaxe transmitida a través do bus.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/assets/images/posts/arduino-i2c/I2C_data_structure_gl.png&quot; title=&quot;Estrutura de Datos do I2C&quot; alt=&quot;Estrutura de Datos do I2C&quot; /&gt;
+  &lt;figcaption&gt;Estrutura de Datos do I2C&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;i2c-co-arduino&quot;&gt;I2C co Arduino&lt;/h2&gt;
+
+&lt;p&gt;As placas &lt;strong&gt;Arduino&lt;/strong&gt;, como están baseadas en microcontroladores Atmel, &lt;strong&gt;inclúen soporte para comunicación TWI&lt;/strong&gt;, que como se viu antes, é &lt;strong&gt;compatible con I2C&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Os pines do chip de Atmel correspondentes a SDA e SCL están &lt;strong&gt;conectados físicamente&lt;/strong&gt; a dous pines do Arduino. Estes dous pines varían dun modelo a outro, como pode verse na seguinte tabla.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Modelo&lt;/th&gt;
+      &lt;th&gt;SDA Pin&lt;/th&gt;
+      &lt;th&gt;SCL Pin&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;UNO&lt;/td&gt;
+      &lt;td&gt;A4&lt;/td&gt;
+      &lt;td&gt;A5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;NANO&lt;/td&gt;
+      &lt;td&gt;A4&lt;/td&gt;
+      &lt;td&gt;A5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MEGA&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Tamén existe a posibilidade de usar outros pines para a comunicación I2C usando librarías, pero como esto sería ao través de software en vez dunha conexión física, a velocidade máxima sería menor.&lt;/p&gt;
+
+&lt;p&gt;Para reducir e simplificar o código necesario para usar o bus I2C, as &lt;em&gt;Arduino Standard Libraries&lt;/em&gt; inclúen a &lt;a href=&quot;https://www.arduino.cc/en/reference/wire&quot;&gt;libraría Wire&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;notification is-info is-light&quot;&gt;
+Á parte da libraría Wire, hai outras librarías para a comunicación I2C dispoñíbeis online, como &lt;a href=&quot;http://www.i2cdevlib.com/&quot;&gt;&lt;strong&gt;I2Cdevlib&lt;/strong&gt;&lt;/a&gt;, que a utilizaremos co &lt;strong&gt;MPU-6050&lt;/strong&gt; en futuros posts.
+&lt;/div&gt;
+
+&lt;p&gt;O uso máis básico da libraría é o seguinte.&lt;/p&gt;
+
+&lt;p&gt;O bus I2C debe ser iniciado. Isto realízase mediante &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.begin()&lt;/code&gt; e só debe facerse unha vez. Despois, dependendo de se queremos escribir ou ler da memoria do escravo, podemos tomar dous camiños.&lt;/p&gt;
+
+&lt;p&gt;Se queremos escribir, iníciase a trasmisión co dispositivo con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.beginTransmission(dirección)&lt;/code&gt;. Despois, os bytes que queremos que sexan escritos son postos á espera con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.write()&lt;/code&gt; e escríbense cando a transmisión termínase con &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire-endTransmission()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Se queremos ler, debemos usar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.requestrom(dirección, número_de_bytes)&lt;/code&gt;. Esto poñerá en espera o número especificado de bytes e terminará a transmisión. Para ler os bytes úsase &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wire.read()&lt;/code&gt;, o que os irá devolvendo de un en un.&lt;/p&gt;
+
+&lt;p&gt;Como exemplo do uso da libraría Wire, imos programar un &lt;strong&gt;escaner I2C&lt;/strong&gt;, útil para cando non sabemos a dirección do dispositivo co que queremos comunicarnos, o que adoita pasar cando se traballa con dispositivos cónicos, xa que non adoitan ter unha documentación pormenorizada. O script vai ser unha versión simplificada do que se encontra &lt;a href=&quot;https://playground.arduino.cc/Main/I2cScanner/&quot;&gt;nesta páxina&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;O programa buscará ao través de tódalas direccións posíbeis, intentando establecer unha comunicación e terminala xusto despois. Si se encontra un dispositivo, a dirección é escrita ao través do porto serie. Podes &lt;strong&gt;desgargar o escript &lt;a href=&quot;/assets/downloadables/posts/i2c-arduino/I2C_scanning.ino&quot; download=&quot;&quot;&gt;aquí&lt;/a&gt;&lt;/strong&gt; ou copialo de máis abaixo.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;Wire.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Wire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;9600&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;I2C Scanner&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Scanning...&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;127&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;Wire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beginTransmission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Wire&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endTransmission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;I2C device found at address 0x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ 
+      &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Unknown error at address 0x&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;    
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;No I2C devices found&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Serial&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;done&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;delay&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+    
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;para-máis-información&quot;&gt;Para máis información&lt;/h2&gt;
+
+&lt;p&gt;Se queres ler máis acerca deste bus, debaixo tes as fontes que utilicei para escribir este post.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.i2c-bus.org/&quot;&gt;I2C-Bus.org [EN]&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.nxp.com/docs/en/user-guide/UM10204.pdf&quot;&gt;I2C-bus spec and user manual by NXP [EN]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;De feito, ten soporte para múltiples mestres, pero non se vai ver neste post. Visita &lt;a href=&quot;https://www.i2c-bus.org/multimaster/&quot;&gt;esta páxina&lt;/a&gt; para máis información. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>Miguel Sánchez</name></author><summary type="html">O Bus I2C foi diseñado por Philips ao principio dos anos 80 para proporcionar unha forma de comunicar múltiples circuitos integrados na mesma placa. O nome é unha abreviación de Inter-Integrated Circuit (out Circuito Inter-Integrado) e tamén pode ser atopado como IIC ou I2C. Xa que orixinalmente era unha marca rexistrada, outras compañías desenvolveron protocolos similares, como Atmel co protocolo TWI (Two Wire Interface ou Interface de dous fíos).</summary></entry></feed>
