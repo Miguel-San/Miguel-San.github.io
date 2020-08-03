@@ -5,7 +5,7 @@
 		<img src="{{ include.image }}">	
 	</figure> -->
 
-	<section class="hero" style="background: url({{ include.image }});">
+	<!-- <section class="hero" style="background: url({{ include.image }});">
 		<div class="hero-body">
 		    <div class="container">
 		      <p class="title"></p>
@@ -13,14 +13,16 @@
 		    </div>
 		</div>
 
-	</section>
+	</section> -->
 
 	{% endif %}
 	<div class="showcase-content">
 		<div class="columns is-centered">
 			<div class="column is-12">
-				<p class="title">{% t include.title %}</p>
-				<p class="subtitle">{% t include.subtitle %}</p>
+				<!-- <p class="title">{% t include.title %}</p> -->
+				<h1 class="title">{% t include.title %}</h1>
+				<h4 class="subtitle">{% t include.subtitle %}</h4>
+				<!-- <p class="subtitle">{% t include.subtitle %}</p> -->
 			</div>
 		</div>		
 		<p align="justify">{% t include.description %}</p>
@@ -29,7 +31,7 @@
 		<div class="tags is-centered">
 		{% for tag in include.tags %}
 
-		<div class="tag is-outlined">{{ tag }}</div>
+		<div class="tag is-outlined"><em>{{ tag }}</em></div>
 
 		{% endfor %}
 		</div>

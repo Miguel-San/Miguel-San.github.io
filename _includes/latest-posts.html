@@ -1,4 +1,8 @@
-<p class="title is-4">{% t global.latest_posts %}</p>
+{% if include.sidebar %}
+<h2 class="title is-4">{% t global.latest_posts %}</h2>
+{% else %}
+<h2 class="title">{% t global.latest_posts %}</h2>
+{% endif %}
 
 <div class="columns is-multiline">
     {% for post in site.posts limit:3 %}

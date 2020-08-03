@@ -33,6 +33,11 @@ $primary_hover: #595959;
 	transition: 0.2s;
 }
 
+.social-media-link{
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
+
 .project-card{	
 	@extend .card;
 	overflow: hidden;
@@ -99,6 +104,19 @@ $primary_hover: #595959;
    -webkit-box-orient: vertical;
 }
 
+.card-header-title-h{
+	margin-bottom: 0 !important;
+}
+
+.title{
+	@extend .title;
+}
+
+.subtitle{
+	@extend .subtitle;
+	font-weight: 400 !important;
+}
+
 .highlight {
 
 	text-align: left !important;
@@ -121,6 +139,51 @@ $primary_hover: #595959;
 	background: transparent !important;
 	border-color: $primary !important;
 	color: $primary !important;
+}
+
+.scroll-to-top{
+	background: $primary;
+	color: whitesmoke;
+	position: fixed;
+	bottom: 24px;
+	right: 20px;
+	z-index: 1;
+	width: 48px;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	border-radius: 50%;
+	transition: all .2s ease-in-out;
+	transform: translateY(180px);
+	visibility: none;
+}
+
+.scroll-to-top:hover .scroll-to-top-arrow{
+	margin-bottom: 0.4em
+}
+
+.scroll-to-top:hover{
+	background: $primary_hover;
+}
+
+.scroll-to-top-arrow{
+	display: inline-block;
+	transition: all 0.1s ease-in-out;
+}
+
+@media screen and (min-width: 1024px){
+	.scroll-to-top-visible{
+		transform: translateY(0px);
+		visibility: visible;
+	}
+}
+
+@media screen and (max-width: 1023px){
+	.scroll-to-top-visible{
+		visibility: none;
+	}
 }
 
 @import "_main";

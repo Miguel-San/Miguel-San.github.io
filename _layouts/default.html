@@ -6,9 +6,10 @@
     {% assign content_width = 'is-12' %} 
 {% endif %}
 <!DOCTYPE html>
-<html class="has-navbar-fixed-top">
+<html class="has-navbar-fixed-top" lang="{{ site.lang }}" xml:lang="{{ site.lang }}">
   {% include head.html %}
-  <body>
+  <body>  
+    <a href="#" id="top-page-anchor"></a> 
     {% include header.html %}
     {% unless page.hide_hero %}
         {% include hero.html %}
@@ -22,7 +23,7 @@
                     {% include menubar.html %}
                 </div>
                 {% endif %}
-                <div class="column {{ content_width }}">                   
+                <div class="column {{ content_width }}">                  
                     {% include tabs.html %}
                     {% include showcase.html %}
                     {% include sponsors.html %}
@@ -30,12 +31,12 @@
                 </div>
                 {% if site.posts and page.show_sidebar %}
                 <div class="column is-4-desktop is-12-tablet">
-                    <p class="title is-4">{% t global.social_media_find %}</p>
+                    <h2 class="title is-4">{% t global.social_media_find %}</h2>
                     {% include social_media.html %}       
 
-                    {% include latest-posts.html %}
+                    {% include latest-posts.html sidebar=true %}
 
-                    <p class="title is-4">{% t global.featured_projects %}</p>
+                    <h2 class="title is-4">{% t global.featured_projects %}</h2>
                     {% for project in site.projects %}
                         {% if project.featured %}
 
@@ -47,6 +48,9 @@
                 {% endif %}
             </div>
         </div>
+
+        <span class="scroll-to-top" id="scroll-to-top"><i class="fa fa-chevron-up scroll-to-top-arrow"></i>
+
     </section>
     {% unless page.hide_footer %}
         {% include footer.html %}
