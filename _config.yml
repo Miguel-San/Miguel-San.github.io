@@ -56,11 +56,11 @@ collections:
 # Build settings
 
 plugins:
-  - jekyll-sitemap
   - jekyll-paginate
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-multiple-languages-plugin
+  - jekyll-sitemap
 
 exclude:
   - .sass-cache/
