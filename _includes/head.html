@@ -10,10 +10,9 @@
     {% unless site.hide_share_buttons %}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
     {% endunless %}
-    {% seo %}
-    {%- if site.google_analytics -%}
-      {%- include google-analytics.html -%}
-    {%- endif -%}
+    {% seo %}  
     {%- include head-scripts.html -%}
+    
+    {% include cookie-consent.html %}
 
 </head>

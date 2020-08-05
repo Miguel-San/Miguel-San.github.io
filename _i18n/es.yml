@@ -14,6 +14,9 @@ global:
   next: Siguiente
   tocTitle: Contenidos
 
+  accept: Aceptar
+  back: Volver
+
   months:
     1: Enero
     2: Febrero
@@ -34,4 +37,16 @@ home:
 projects:
   title: Proyectos
 
-  
+cookies:
+  notice: Utilizamos cookies propias y de terceros para fines analíticos. Para más información consulta la política de cookies pulsando en Política de Cookies. Puedes aceptar todas las cookies pulsando en el botón aceptar o configurarlas o rechazar su uso pulsando en el botón rechazar.
+  configure: Configurar / Rechazar
+  policy: Política de Cookies
+  config_title: Personalización de cookies
+  config_text: Puedes configurar tus preferencias a continuación. Se listan los proveedores de cookies junto con su propósito y una breve descripción. Una vez satisfecho con la selección, pulsa Aceptar para guardar tus preferencias. Pulsar Aceptar sin haber seleccionado ninguna opción equivaldrá al rechazo de todas las cookies.
+
+  providers:
+    miguelsd: Miguel Sánchez (Esta Web)
+
+  types:
+    personalization: Preferencias y personalización
+    personalization_text: Son aquellas cookies que permiten el almacenamiento de información acerca de las preferencias del usuario al utilizar la página, como el idioma, número de resultados a mostrar en una búsqueda o las preferencias acerca de las cookies.

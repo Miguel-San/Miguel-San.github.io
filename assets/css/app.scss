@@ -33,6 +33,22 @@ $primary_hover: #595959;
 	transition: 0.2s;
 }
 
+strong.is-inverted{
+	color: whitesmoke;
+}
+
+p.is-inverted{
+	color: whitesmoke;
+}
+
+p.is-tiny{
+	font-size: 0.75em;
+}
+
+.margin-1em{
+	margin: 1em;
+}
+
 .social-media-link{
 	margin-left: 0.2em;
 	margin-right: 0.2em;
@@ -127,6 +143,10 @@ $primary_hover: #595959;
 	transition: 0.2s;
 }
 
+.button.is-inverted:hover{
+	color: whitesmoke !important;
+}
+
 .button{
 	transition: 0.2s;
 	overflow: hidden;
@@ -139,6 +159,12 @@ $primary_hover: #595959;
 	background: transparent !important;
 	border-color: $primary !important;
 	color: $primary !important;
+}
+
+.table.is-scrollable tbody{
+  overflow-y: scroll;
+  width: auto;
+  position: absolute;
 }
 
 .scroll-to-top{
@@ -157,7 +183,7 @@ $primary_hover: #595959;
 	border-radius: 50%;
 	transition: all .2s ease-in-out;
 	transform: translateY(180px);
-	visibility: none;
+	visibility: hidden;
 }
 
 .scroll-to-top:hover .scroll-to-top-arrow{
@@ -182,8 +208,15 @@ $primary_hover: #595959;
 
 @media screen and (max-width: 1023px){
 	.scroll-to-top-visible{
-		visibility: none;
+		visibility: hidden;
 	}
 }
+
+#cookie-notice {padding: 20px; position: fixed; bottom: 0; background: $primary; color: whitesmoke; z-index: 10; border: solid 1px whitesmoke;}
+.cookie-config{padding: 20px; position: fixed; bottom: 0; background: $primary; color: whitesmoke; z-index: 11; border: solid 1px whitesmoke; visibility: hidden; transform: translateY(100%); transition: all 0.5s ease-in-out;}
+.cookie-config-visible{visibility: visible; transform: translateY(0px);}
+//.cookie-config-container {transform: translateY(100%); visibility: hidden;}
+//.cookie-config-container-visible {transform: translateY(0%); visibility: visible;}
+
 
 @import "_main";

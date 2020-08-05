@@ -1,0 +1,54 @@
+<div class="columns">
+	<div class="column is-12">
+		<div id="cookie-notice" class="columns is-multiline">
+			<div class="column is-12-tablet is-8-desktop">	
+    			<span>{% t cookies.notice %}</span>
+			</div>
+			<div class="column is-12-tablet is-4-desktop">
+				<div class="columns is-multiline">
+					<div class="column is-12">
+    					<a id="cookie-notice-accept" class="button is-primary is-inverted is-fullwidth">{% t global.accept %}</a>
+    				</div>
+    				<div class="column is-12">
+    					<a id="cookie-configure-btn" class="button is-primary is-inverted is-outlined is-fullwidth">{% t cookies.configure %}</a>
+    				</div>
+    				<div class="column is-12">
+    					<a href="{{ site.baseurl }}/cookie-policy/" class="button is-primary is-inverted is-outlined is-fullwidth">{% t cookies.policy %}</a>
+    				</div>
+    			</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="columns cookie-config-container" id="cookie-config-container">
+	<div class="column is-12">
+		<div id="cookie-config" class="columns is-vcentered is-centered cookie-config is-multiline">
+			<div class="column is-2">
+				<a class="button is-text is-primary" id="cookie-config-back"><i class="fa fa-angle-left" aria-hidden="true" style="margin-right: 0.2em;"></i>{% t global.back %}</a>
+			</div>
+			<div class="column is-10"><p class="title is-4 is-inverted">{% t cookies.config_title %}</div>
+			<div class="column is-12">
+				<p class="is-tiny">{% t cookies.config_text %}</p>
+			</div>
+			<div class="column is-12">
+				<p>{% t cookies.providers.miguelsd %}</p>
+			</div>
+			<div class="column is-1"></div>
+			<div class="column is-3">
+				<label class="checkbox">
+					<strong class="is-inverted margin-1em">{% t cookies.types.personalization %}</strong>
+  					<input type="checkbox">
+				</label>
+			</div>
+			<div class="column is-8">
+				<p>{% t cookies.types.personalization_text %}</p>
+			</div>
+
+			<div class="column is-10"></div>
+			<div class="column is-2">
+				<a class="button is-primary is-inverted">{% t global.accept %}</a>
+			</div>
+		</div>
+	</div>	
+</div>
