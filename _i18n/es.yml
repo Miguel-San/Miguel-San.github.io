@@ -3,6 +3,7 @@ global:
   projects: Proyectos
   blog: Blog
   about: Sobre mí
+  cookie-policy: Política de Cookies
 
   social_media_find: Puedes encontrarme en
   share: Compártelo en
@@ -16,6 +17,7 @@ global:
 
   accept: Aceptar
   back: Volver
+  reject_all: Rechazar todo
 
   months:
     1: Enero
@@ -38,15 +40,41 @@ projects:
   title: Proyectos
 
 cookies:
-  notice: Utilizamos cookies propias y de terceros para fines analíticos. Para más información consulta la política de cookies pulsando en Política de Cookies. Puedes aceptar todas las cookies pulsando en el botón aceptar o configurarlas o rechazar su uso pulsando en el botón rechazar.
+  notice: >
+    Utilizamos cookies propias y de terceros para fines analíticos.
+    Para más información consulta la política de cookies pulsando en
+    Política de Cookies. Puedes aceptar todas las cookies pulsando en
+    el botón aceptar o configurarlas y rechazar su uso pulsando en el
+    botón Configurar / Rechazar.
   configure: Configurar / Rechazar
+  save_config: Guardar Preferencias
   policy: Política de Cookies
   config_title: Personalización de cookies
-  config_text: Puedes configurar tus preferencias a continuación. Se listan los proveedores de cookies junto con su propósito y una breve descripción. Una vez satisfecho con la selección, pulsa Aceptar para guardar tus preferencias. Pulsar Aceptar sin haber seleccionado ninguna opción equivaldrá al rechazo de todas las cookies.
+  config_text: >
+    Puedes configurar tus preferencias a continuación. Se listan los
+    proveedores de cookies junto con su propósito y una breve descripción.
+    Una vez satisfecho con la selección, pulsa "Guardar preferencias" para
+    guardar tus preferencias. Pulsar "Guardar preferencias" sin haber
+    seleccionado ninguna opción o pulsar "Rechazar todo" equivaldrá al
+    rechazo de todas las cookies. Si en un futuro deseas eliminar las cookies
+    de esta página web, en la página de Política de Cookies se detallan los
+    pasos a seguir.
 
   providers:
     miguelsd: Miguel Sánchez (Esta Web)
+    google: Google
 
   types:
     personalization: Preferencias y personalización
-    personalization_text: Son aquellas cookies que permiten el almacenamiento de información acerca de las preferencias del usuario al utilizar la página, como el idioma, número de resultados a mostrar en una búsqueda o las preferencias acerca de las cookies.
+    personalization_text: >
+      Son aquellas cookies que permiten el almacenamiento de información
+      acerca de las preferencias del usuario al utilizar la página, como
+      el idioma, número de resultados a mostrar en una búsqueda o las
+      preferencias acerca de las cookies.
+    analysis: Medición
+    analysis_text: >
+      Son aquellas cookies que, tratadas por esta página o por terceros,
+      permiten cuantificar el número de usuarios y así realizar la medición
+      y análisis estadístico de la utilización que hacen los usuarios del
+      servicio ofertado. Para ello se analiza la navegación en esta página
+      web con el fin de mejorar la oferta de servicios.

@@ -3,6 +3,7 @@ global:
   projects: Projects
   blog: Blog
   about: About
+  cookie-policy: Cookie Policy
 
   social_media_find: You can find me on
   share: Share
@@ -13,6 +14,10 @@ global:
   previous: Previous
   next: Next
   tocTitle: Contents
+
+  accept: Accept
+  back: Go Back
+  reject_all: Reject All
 
   months:
     1: January
@@ -38,3 +43,39 @@ projects:
     #title: title
     #subtitle: subtitle
     #description: description
+
+cookies:
+  notice: >
+    We use first and third party cookies for analytical purposes.
+    For more information check the cookie policy clicking on Cookie Policy.
+    You can accept all the cookies clicking on Accept or configure and reject
+    them clicking on Configure / Reject
+  configure: Configure / Reject
+  save_config: Save Preferences
+  policy: Cookie Policy
+  config_title: Cookie personalization
+  config_text: >
+    You can configure your preferences right below. Cookie providers are
+    listed along with their purpose and a brief description. Once satisfied,
+    click on "Save Preferences" to save your preferences. Clicking on "Save
+    preferences" without selecting any option or clicking on "Reject All"
+    will be equivalent to reject all the cookies. If you want to erase the cookies
+    of this site in the future, the steps are detailed in the Cookie Policy page.
+
+  providers:
+    miguelsd: Miguel Sánchez (This Web)
+    google: Google
+
+  types:
+    personalization: Preferences and personalization
+    personalization_text: >
+      Personalization cookies are those which allow the storage of
+      information about the preferences of the user regarding the use
+      and appearance of the page, such as language, number of results
+      to show up after a search or the cookie preferences.
+    analysis: Measurement
+    analysis_text: >
+      Measurement cookies are those which, treated by this page or third parties,
+      allow quantifying the number of users and thus perform measurements and
+      statistical analysis of the use made by users. For that, navigation on this
+      web page is analyzed in order to improve the provided offer of services.

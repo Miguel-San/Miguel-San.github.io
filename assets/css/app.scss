@@ -163,8 +163,8 @@ p.is-tiny{
 
 .table.is-scrollable tbody{
   overflow-y: scroll;
-  width: auto;
-  position: absolute;
+  //width: auto;
+  //position: absolute;
 }
 
 .scroll-to-top{
@@ -212,8 +212,17 @@ p.is-tiny{
 	}
 }
 
-#cookie-notice {padding: 20px; position: fixed; bottom: 0; background: $primary; color: whitesmoke; z-index: 10; border: solid 1px whitesmoke;}
-.cookie-config{padding: 20px; position: fixed; bottom: 0; background: $primary; color: whitesmoke; z-index: 11; border: solid 1px whitesmoke; visibility: hidden; transform: translateY(100%); transition: all 0.5s ease-in-out;}
+.column.is-scrollable{
+	overflow-y: scroll;
+	max-height: 45vh;
+}
+
+.is-scrollable{
+	overflow-y: scroll;
+}
+
+#cookie-notice {padding: 20px; position: fixed; bottom: 0; background: $primary; color: whitesmoke; z-index: 10; border: solid 1px whitesmoke; visibility: hidden;}
+.cookie-config{padding: 20px; position: fixed; bottom: 0; background: $primary; color: whitesmoke; z-index: 11; max-height: 90vh; border: solid 1px whitesmoke; visibility: hidden; transform: translateY(100%); transition: all 0.5s ease-in-out;}
 .cookie-config-visible{visibility: visible; transform: translateY(0px);}
 //.cookie-config-container {transform: translateY(100%); visibility: hidden;}
 //.cookie-config-container-visible {transform: translateY(0%); visibility: visible;}

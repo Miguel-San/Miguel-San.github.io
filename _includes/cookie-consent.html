@@ -24,19 +24,38 @@
         createCookie(name,"",-1);
     }
 
+    function processCookieConfiguration(miguelsd_personalization, google_analysis){
+        if(miguelsd_personalization){
+            createCookie('cookie-notice-dismissed','true',365);
+        }
+
+        if(google_analysis){   
+            createCookie('cookie-google-analysis_accepted', 'true', 365);         
+            gl_analytics_includes();
+        }
+
+        document.getElementById('cookie-notice').style.visibility = 'hidden';
+        $("#cookie-config").removeClass("cookie-config-visible");
+    }
+
     $(document).ready(function(){
-        if(readCookie('cookie-notice-dismissed')=='true') {
-            console.log("Cookies accepted");
-            clAcp_includes();
-            
+        if(readCookie('cookie-notice-dismissed') == 'true'){
+
         } else {
             document.getElementById('cookie-notice').style.visibility = 'visible';
         }
 
+        if(readCookie('cookie-google-analysis_accepted')=='true') {
+            console.log("Google Analysis accepted");
+            gl_analytics_includes();
+            
+        }
+
         document.getElementById('cookie-notice-accept').addEventListener("click",function() {
-            createCookie('cookie-notice-dismissed','true',31);
-            document.getElementById('cookie-notice').style.display = 'none';
-            clAcp_includes();
+            processCookieConfiguration(true, true);
+            //createCookie('cookie-notice-dismissed','true',365);
+            //document.getElementById('cookie-notice').style.display = 'none';
+            //gl_analytics_includes();
             //location.reload();
         });
 
@@ -51,9 +70,27 @@
             $("#cookie-config").removeClass("cookie-config-visible");
         });
 
+        document.getElementById('cookie-config-save').addEventListener("click", function(){
+            var miguelsd_personalization = false;
+            var google_analysis = false;
+
+            if(document.getElementById('miguelsd-personalization-chk').checked){
+                miguelsd_personalization = true;
+            }
+            if(document.getElementById('google-analysis-chk').checked){
+                google_analysis = true;
+            }
+
+            processCookieConfiguration(miguelsd_personalization, google_analysis);
+        });
+
+        document.getElementById('cookie-config-reject').addEventListener("click", function(){
+            processCookieConfiguration(false, false);
+        });
+
     }); 
 
-    function clAcp_includes(){
+    function gl_analytics_includes(){
         if (!cookiesAlreadyAccepted){
             {%- if site.google_analytics -%}
                 {%- include google-analytics.js -%}

@@ -3,6 +3,7 @@ global:
   projects: Proxectos
   blog: Blog
   about: Sobre min
+  cookie-policy: Política de Cookies
 
   social_media_find: Podes econtrarme en
   share: Compárteo en
@@ -13,6 +14,10 @@ global:
   previous: Previo
   next: Seguinte
   tocTitle: Contidos
+
+  accept: Aceptar
+  back: Volver
+  reject_all: Rexeitar todo
 
   months:
     1: Xaneiro
@@ -33,3 +38,41 @@ home:
 
 projects:
   title: Proxectos
+
+cookies:
+  notice: >
+    Utilizamos cookies propias e de terceiros para fine analíticos.
+    Para máis información consulta a política de cookies pulsando en
+    Política de Cookies. Podes aceptar tódalas cookies pulsando no botón
+    aceptra ou configuralas e rexeitar o seu uso pulsando no botón
+    Configurar / Rexeitar
+  configure: Configurar / Rexeitar
+  save_config: Gardar Preferencias
+  policy: Política de Cookies
+  config_title: Personalización de cookies
+  config_text: >
+    Podes configurar as túas preferencias a continuación. A listaxe inclúe
+    os proveedores de cookies xunto co seu propósito e unha breve descrición.
+    Unha vez satisfeito coa selección, pulsa "Gardar preferencias" para
+    gardar as túas preferencias. Pulsar "Gardar preferencias" sen ter
+    seleccionada ningunha opción ou pulsar "Rexeitar todo" equivalerá ao
+    rexeitamento de tódalas cookies. Se nun futuro desexas eliminar as cookies
+    desta páxina web, ná páxina de Política de Cookies detállanse os pasos a seguir.
+
+  providers:
+    miguelsd: Miguel Sánchez (Esta Web)
+    google: Google
+
+  types:
+    personalization: Preferencias e personalización
+    personalization_text: >
+      Son aquelas cookies que permiten o almacenamento de información acerca
+      das preferencias do usuario ao utilizar a páxina, como o idioma, número
+      de resultados a mostrar nunha búsqueda ou as preferencias aecrca das cookies.
+    analysis: Medición
+    analysis_text: >
+      Son aquelas cookies que, tratatas por esta páxina ou por terceiros,
+      permiten cuantificar o número de usuarios e así realizar unha medición e
+      análises estadísticos da utilización que fan os usuarios do servizo ofertado.
+      Para isto, analízase a navegación nesta páxina web co fin de mellorar a oferta
+      de servizos.
